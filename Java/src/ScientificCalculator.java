@@ -11,8 +11,34 @@ public class ScientificCalculator {
 			
 		}
 	
+	public static int power(int b, int pow) {
+	    if (pow != 0) {
+
+	      // recursive call to power()
+	      return (b * power(b, pow - 1));
+	    }
+	    else {
+	      return 1;
+	    }
+	  }
+	
 	public static void function5or6() {
+		Scanner input = new Scanner(System.in);
+		int a=0, b=0, x=0, y=0;
+		System.out.println("Please enter the value of ");
 		
+		System.out.print("a = ");
+		a = input.nextInt();
+		
+		System.out.print("b = ");
+		b = input.nextInt();
+		
+		System.out.print("x = ");
+		x = input.nextInt();
+		
+		y = power(b,x);
+		y = a*y;
+		System.out.println("Solution = "+y+"\n");
 	}
 	
 	public static void function7or8() {
