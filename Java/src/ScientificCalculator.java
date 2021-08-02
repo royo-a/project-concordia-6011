@@ -1,6 +1,4 @@
-import java.util.InputMismatchException;
-import java.util.Scanner;
-
+import java.util.*;
 public class ScientificCalculator {
 	
 	public static void function1or2() {
@@ -11,34 +9,70 @@ public class ScientificCalculator {
 			
 		}
 	
-	public static int power(int b, int pow) {
-	    if (pow != 0) {
-
-	      // recursive call to power()
-	      return (b * power(b, pow - 1));
-	    }
-	    else {
-	      return 1;
-	    }
+	public static float power(float b, float x) {
+	    if (x < 0) {
+	    	return power(b, x+1)/b;
+	    }else if(x == 0) {
+	    	return 1;
+	    }else {
+	    	return b*power(b, x-1);
+		}
 	  }
 	
-	public static void function5or6() {
-		Scanner input = new Scanner(System.in);
-		int a=0, b=0, x=0, y=0;
-		System.out.println("Please enter the value of ");
+	public static float exponential(int n){
+		int x = 1;
+        float sum = 1;
+        for (int i = n - 1; i > 0; --i )
+            sum = 1 + x * sum / i;
+  
+        return sum;
+    }
+	
+	public static String checkValid() {
+		Scanner sc = new Scanner(System.in);
+		String a = sc.next();
 		
-		System.out.print("a = ");
-		a = input.nextInt();
+		if(a.equals("e")) {
+			return a;
+		}else {
+			try {
+				float tempa = Float.parseFloat(a);
+				return a;
+			}catch(NumberFormatException e) {
+				System.out.println("Invalid Input of a - "+e);
+			}
+			System.out.println("Please enter again : ");
+			return checkValid();
+		}
+	}
+	
+	public static void function5or6(String a, String b, String x) {
+		float y = 0;
+		float tempa = 0, tempb = 0, tempx = 0;
 		
-		System.out.print("b = ");
-		b = input.nextInt();
+		if(a.equals("e")) {
+			tempa = 1;
+		}else {
+			tempa = Float.parseFloat(a);
+		}
 		
-		System.out.print("x = ");
-		x = input.nextInt();
+		if(b.equals("e")) {
+			y = exponential(Integer.parseInt(x));
+			
+		}else {
+			tempb = Float.parseFloat(b);
+			if(x.equals("e")) {
+				tempx = 1;
+			}else {
+				tempx = Float.parseFloat(x);
+			}
+		    y = power(tempb, tempx);
+		}
 		
-		y = power(b,x);
-		y = a*y;
-		System.out.println("Solution = "+y+"\n");
+	
+		
+		y = tempa * y;
+		System.out.println("Result = "+y+"\n");
 	}
 	
 	public static void function7or8() {
@@ -70,7 +104,22 @@ public class ScientificCalculator {
 			menu();
 		case 3:
 			System.out.println("\nDetails of ab^x");
-			function5or6();
+			String a,b,x;
+			System.out.println("Please enter the value of ");
+			
+			System.out.print("a = ");
+			a = checkValid();
+//			a = input.next();
+			
+			System.out.print("b = ");
+			b = checkValid();
+//			b = input.next();
+			
+			System.out.print("x = ");
+			x = checkValid();
+//			x = input.next();
+			
+			function5or6(a,b,x);
 			menu();
 		case 4:
 			System.out.println("\nDetails of x^y");
