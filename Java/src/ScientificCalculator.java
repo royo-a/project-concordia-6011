@@ -5,9 +5,9 @@ public class ScientificCalculator {
 		
 	}
 	
-	public static void function3or4() {
-			
-		}
+	public static void function3or4() {		
+		FunctionF4.gamma();
+	}
 	
 	public static float power(float b, float x) {
 	    if (x < 0) {
@@ -82,8 +82,8 @@ public class ScientificCalculator {
 	public static void menu() {
 		int choice = 0;
 		Scanner input = new Scanner(System.in);
-		System.out.println("Avaiable Function");
-		System.out.println("1. Function : tan(x) \n2. Function : sinh(x)\n3. Function : ab^x\n4. Function : x^y\n5. End");
+		System.out.println("Available Function");
+		System.out.println("1. Function : tan(x) \n2. Function : Γ(x) \n3. Function : ab^x\n4. Function : x^y\n5. End");
 		System.out.print("\nPlease enter your choice (enter function number) = ");
 		try {
 			choice = input.nextInt();
@@ -99,7 +99,7 @@ public class ScientificCalculator {
 			function1or2();
 			menu();
 		case 2:
-			System.out.println("\nDetails of sinh(x)");
+			System.out.println("\nDetails of Γ(x)");
 			function3or4();
 			menu();
 		case 3:
