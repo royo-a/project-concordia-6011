@@ -1,7 +1,6 @@
-package com.company;
-
 import java.util.*;
 public class ScientificCalculator {
+	
 	private static long[] factorials = generateFactorials(19);
 
 	// Can generate maximum 19! without overflow
@@ -224,9 +223,6 @@ public class ScientificCalculator {
 			}
 		    y = power(tempb, tempx);
 		}
-		
-	
-		
 		y = tempa * y;
 		System.out.println("Result = "+y+"\n");
 	}
