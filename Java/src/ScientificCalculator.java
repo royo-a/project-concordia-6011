@@ -152,7 +152,13 @@ public class ScientificCalculator {
 	}
 
 	public static double calculateTan(int angle, long[] factorials) {
-		return roundTo8Digits(calculateSin(angle, factorials) / calculateCos(angle, factorials));
+		double result = calculateSin(angle, factorials) / calculateCos(angle, factorials);
+		if(result == Double.POSITIVE_INFINITY || result == Double.NEGATIVE_INFINITY){
+			throw new ArithmeticException("Tangent for an angle which is 90 degree or" +
+					" any odd multiples of 90 degree doesn't exist.");
+		}
+
+		return roundTo8Digits(result);
 	}
 	
 	public static void function3or4() {
@@ -245,7 +251,17 @@ public class ScientificCalculator {
 		
 		switch(choice) {
 		case 1:
-			calculateTan(25, factorials);
+			Scanner myScanner = new Scanner(System.in);
+			System.out.println("Enter an angle in degrees(needs to be integer):");
+			try {
+				int angle = myScanner.nextInt();
+				System.out.println(calculateTan(angle, factorials));
+			} catch (InputMismatchException e) {
+				System.out.println("Your input needs to be an integer in the range -2147483648" +
+						" to 2147483647. Please try again.");
+			} catch (ArithmeticException e){
+				System.out.println(e.getMessage());
+			}
 			menu();
 		case 2:
 			System.out.println("\nDetails of sinh(x)");
