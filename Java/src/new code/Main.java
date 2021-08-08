@@ -35,6 +35,16 @@ public class Main {
         Calculator.function5or6(a, b, c);
     }
 
+    public static void processSine(){
+        Menu.promptSineInput();
+        Calculator.function3or4();
+    }
+
+    public static void processXY(){
+        Menu.promptXYInput();
+        Calculator.function7or8();
+    }
+
     public static void main(String[] args) {
         int choice;
         Scanner scanner = new Scanner(System.in);
@@ -57,15 +67,13 @@ public class Main {
                     processTangent();
                     break;
                 case 2:
-                    Menu.promptSineInput();
-                    Calculator.function3or4();
+                    processSine();
                     break;
                 case 3:
                     processABX();
                     break;
                 case 4:
-                    Menu.promptXYInput();
-                    Calculator.function7or8();
+                    processXY();
                     break;
                 case 5:
                     Menu.printEnd();
