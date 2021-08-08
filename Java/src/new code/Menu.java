@@ -14,6 +14,7 @@ public class Menu {
         sb.append("2. sin(x)\n");
         sb.append("3. ab^x\n");
         sb.append("4. x^y\n");
+        sb.append("5. Quit\n");
         sb.append(printUnderLine());
         System.out.println(sb.toString());
     }
