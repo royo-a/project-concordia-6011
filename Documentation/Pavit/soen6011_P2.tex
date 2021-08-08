@@ -1,0 +1,105 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\begin{document}
+
+\section*{Problem 2}
+The assumptions and requirements for the function \[x^y\] as per ISO/IEC/IEEE 29148 standards.
+
+\subsection*{2.1 Assumptions}
+
+\begin{itemize}
+\item Assumption 1
+\begin{itemize}
+\item ID:       ASSUMP1
+\item Version:  1.0
+\item Type:     functional
+\item Owner:    Pavit Srivatsan
+\item PRIORITY: 1 
+\item Difficulty: Easy
+\item DESC: fractional inputs are entered as double values
+\item Rationale: when input base or exponent value equals $2/3$, it must be expressed as 0.67
+\end{itemize}
+\item Assumption 2
+\begin{itemize}
+\item ID:       ASSUMP2
+\item Version:  1.0
+\item Type:     functional
+\item Owner:    Pavit Srivatsan
+\item PRIORITY: 1 
+\item Difficulty: medium
+\item DESC: The output of larger values of exponent and base are expressed in terms of exponents 
+\item Rationale: when input is 100 raised to 100, the output is expressed as 1.9047931533522278E25
+\end{itemize}
+\item Assumption 3
+\begin{itemize}
+\item ID:       ASSUMP3
+\item Version:  1.0
+\item Type:     functional
+\item Owner:    Pavit Srivatsan
+\item PRIORITY: 2 
+\item Difficulty: High
+\item DESC: Users enter whole numbers and rational numbers
+\item Rationale: Irrational numbers are not handled by the code.For Example: $\pi$, $\surd 2$
+\end{itemize}
+\item Assumption 4
+\begin{itemize}
+\item ID:       ASSUMP4
+\item Version:  1.0
+\item Type:     functional
+\item Owner:    Pavit Srivatsan
+\item PRIORITY: 3
+\item Difficulty: Easy
+\item DESC: Mathematical symbols such as infinity, indeterminate are represented in words
+\item Rationale: Symbols such $\infty$ are represented in words - infinity
+\end{itemize}
+\end{itemize}
+
+\subsection*{2.2 Functional Requirements}
+\begin{itemize}
+\item Requirement 1
+\begin{itemize}
+\item ID:       FUNR1
+\item Version:  1.0
+\item Type:     functional
+\item Owner:    Pavit Srivatsan
+\item PRIORITY: 1 
+\item Difficulty: Easy
+\item DESC: The arguments passed to the function x power y shall be valued within $-\propto to +\propto$ and fractions are expressed as double values.
+\item Rationale:when $x=2.2$, $ y = 4.45$ where x expressed in radians.
+\end{itemize}
+\item Requirement 2
+\begin{itemize}
+\item ID:       FUNR2
+\item Version:  1.0
+\item Type:     functional
+\item Owner:    Pavit Srivatsan
+\item PRIORITY: 2 
+\item Difficulty: Easy
+\item DESC:  The function shall return the value 1 when any base value is raised to the power zero
+\item Rationale: 10 raised to the power 0 returns 1
+\end{itemize}
+\item Requirement 3
+\begin{itemize}
+\item ID:       FUNR3
+\item Version:  1.0
+\item Type:     functional
+\item Owner:    Pavit Srivatsan
+\item PRIORITY: 2
+\item Difficulty: Easy
+\item DESC: The function shall return zero when base value zero is raised to any exponent value
+\item Rationale: 0 raised to the power 10 returns 0
+\end{itemize}
+\item Requirement 4
+\begin{itemize}
+\item ID:       FUNR4
+\item Version:  1.0
+\item Type:     functional
+\item Owner:    Pavit Srivatsan
+\item PRIORITY: 2
+\item Difficulty: Medium
+\item DESC: The function shall accept only numerical values as specified in the domain
+\item Rationale: string values, numbers with special characters, special characters are not allowed as inputs and an appropriate error message is displayed
+\end{itemize}
+\end{itemize}
+\end{document}
