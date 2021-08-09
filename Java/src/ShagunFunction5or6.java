@@ -7,15 +7,17 @@ public class ShagunFunction5or6 {
 	@Test
 	public void test() {
 //		fail("Not yet implemented");
-		ScientificCalculator test1 = new ScientificCalculator();
-		test1.function5or6("1", "e", "4");
-		test1.function5or6("10", "10", "-4");
-		test1.function5or6("2", "20", "-2");
-		test1.function5or6("3", "e", "10");
-		test1.function5or6("5", "0", "1");
-		test1.function5or6("1", "e", "0");
-		test1.function5or6("a", "e", "b");
-		test1.function5or6("2", "1", "0");
+		ScientificCalculator checkFunctionality = new ScientificCalculator();
+		
+		checkFunctionality.function5or6("10", "2", "10");
+		checkFunctionality.function5or6("20", "12", "5");
+		checkFunctionality.function5or6("-180", "6", "-2");
+		checkFunctionality.function5or6("-64", "2", "4");
+		
+		checkFunctionality.function5or6("4", "e", "10");
+		checkFunctionality.function5or6("24", "e", "1");
+		checkFunctionality.function5or6("10", "e", "0");
+		checkFunctionality.function5or6("-5", "e", "10");
 	}
 
 }
