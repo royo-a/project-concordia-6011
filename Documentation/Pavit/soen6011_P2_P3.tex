@@ -1,0 +1,217 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{comment} 
+\usepackage{fullpage}
+\usepackage{hyperref}
+\usepackage{amsmath}
+\usepackage{environ}
+\usepackage{tabto,enumitem}
+\usepackage{lipsum}
+\usepackage{float}
+\usepackage{tabto}
+\usepackage{booktabs}
+
+
+\usepackage{graphicx}
+\usepackage{graphics}
+
+\usepackage[ruled]{algorithm2e}
+\renewcommand{\algorithmcfname}{ALGORITHM}
+ 
+
+\begin{document}
+
+\section*{Problem 2}
+The assumptions and requirements for the function \[x^y\] as per ISO/IEC/IEEE 29148 standards.
+
+\subsection*{2.1 Assumptions}
+
+\begin{itemize}
+\item Assumption 1
+\begin{itemize}
+\item ID:       ASSUMP1
+\item Version:  1.0
+\item Type:     functional
+\item Owner:    Pavit Srivatsan
+\item PRIORITY: 1 
+\item Difficulty: Easy
+\item DESC: fractional inputs are entered as double values
+\item Rationale: when input base or exponent value equals $2/3$, it must be expressed as 0.67
+\end{itemize}
+\item Assumption 2
+\begin{itemize}
+\item ID:       ASSUMP2
+\item Version:  1.0
+\item Type:     functional
+\item Owner:    Pavit Srivatsan
+\item PRIORITY: 1 
+\item Difficulty: medium
+\item DESC: The output of larger values of exponent and base are expressed in terms of exponents 
+\item Rationale: when input is 100 raised to 100, the output is expressed as 1.9047931533522278E25
+\end{itemize}
+\item Assumption 3
+\begin{itemize}
+\item ID:       ASSUMP3
+\item Version:  1.0
+\item Type:     functional
+\item Owner:    Pavit Srivatsan
+\item PRIORITY: 2 
+\item Difficulty: High
+\item DESC: Users enter whole numbers and rational numbers
+\item Rationale: Irrational numbers are not handled by the code.For Example: $\pi$, $\surd 2$
+\end{itemize}
+\item Assumption 4
+\begin{itemize}
+\item ID:       ASSUMP4
+\item Version:  1.0
+\item Type:     functional
+\item Owner:    Pavit Srivatsan
+\item PRIORITY: 3
+\item Difficulty: Easy
+\item DESC: Mathematical symbols such as infinity, indeterminate are represented in words
+\item Rationale: Symbols such $\infty$ are represented in words - infinity
+\end{itemize}
+\end{itemize}
+
+\subsection*{2.2 Functional Requirements}
+\begin{itemize}
+\item Requirement 1
+\begin{itemize}
+\item ID:       FUNR1
+\item Version:  1.0
+\item Type:     functional
+\item Owner:    Pavit Srivatsan
+\item PRIORITY: 1 
+\item Difficulty: Easy
+\item DESC: The arguments passed to the function x power y shall be valued within $-\propto to +\propto$ and fractions are expressed as double values.
+\item Rationale:when $x=2.2$, $ y = 4.45$ where x expressed in radians.
+\end{itemize}
+\item Requirement 2
+\begin{itemize}
+\item ID:       FUNR2
+\item Version:  1.0
+\item Type:     functional
+\item Owner:    Pavit Srivatsan
+\item PRIORITY: 2 
+\item Difficulty: Easy
+\item DESC:  The function shall return the value 1 when any base value is raised to the power zero
+\item Rationale: 10 raised to the power 0 returns 1
+\end{itemize}
+\item Requirement 3
+\begin{itemize}
+\item ID:       FUNR3
+\item Version:  1.0
+\item Type:     functional
+\item Owner:    Pavit Srivatsan
+\item PRIORITY: 2
+\item Difficulty: Easy
+\item DESC: The function shall return zero when base value zero is raised to any exponent value
+\item Rationale: 0 raised to the power 10 returns 0
+\end{itemize}
+\item Requirement 4
+\begin{itemize}
+\item ID:       FUNR4
+\item Version:  1.0
+\item Type:     functional
+\item Owner:    Pavit Srivatsan
+\item PRIORITY: 2
+\item Difficulty: Medium
+\item DESC: The function shall accept only numerical values as specified in the domain
+\item Rationale: string values, numbers with special characters, special characters are not allowed as inputs and an appropriate error message is displayed
+\end{itemize}
+\end{itemize}
+
+\section*{Problem 3}
+\section*{Pseudocode and Algorithm}
+Calculate: $f(x,y) = x^y$
+
+\begin{algorithm}
+\caption{Iterative algorithm to calculate $x^y$}
+\begin{algorithmic} 
+1. function \textbf{power\_function\_iterative(x,y)}\\
+\textbf{in: } double number x,y\\
+\textbf{out: } double number result\\
+2. \STATE $result \leftarrow 1$\\
+3. \STATE $temp \leftarrow 1$\\
+4. for {$temp \leq y$} do\\
+5.\qquad \STATE $result \leftarrow result*x$\\
+6.\qquad\STATE $temp \leftarrow temp+1$\\
+7. end for \\
+8. \STATE return result\\
+\end{algorithmic}
+\end{algorithm}
+
+The output is stored in result, which is initially set to 1. It is then looped from 1 to y, x number of times, incremented by one on each iteration and on each iteration we multiply result by x. At the end of the loop value of result is equal to $x^y$.
+\newpage
+\begin{algorithm}
+\caption{Recursive Divide and Conquer algorithm to calculate $x^y$}
+\begin{algorithmic} 
+1. function \textbf{power\_function\_recursive(x,y)}\\
+\textbf{in: } double number x,y\\
+\textbf{out: } double number result\\
+3. \STATE $power \leftarrow exponent\_helper(x,y)$\\
+4. \STATE $result = power$\\
+5. return result
+\end{algorithmic}
+\end{algorithm}
+\begin{algorithm}
+
+\begin{algorithmic} 
+1. function \textbf{exponent\_helper(x,y)}\\
+\textbf{in: } double number x, y\\
+\textbf{out: } double number sum\\
+2. if  \STATE $x < 0$  then\\
+3. \qquad $x \leftarrow 1.0 / x$ \\
+4. \qquad $y \leftarrow -y$ \\
+5. \qquad return $exponent\_helper(x,y)$ \\
+6. else if \STATE $y = 0$ then \\
+7.    \qquad return $1.0$ \\
+8. else if \STATE $y = 1$ then \\
+9.    \qquad return x \\
+10. else if \STATE $y \mod  2 = 0$ then \\
+11.    \qquad $y \leftarrow y * y$ \\
+12.    \qquad $y \leftarrow y / 2$ \\
+13.    \qquad return $exponent\_helper(x, y)$\\
+14. else \\
+15.    \qquad $x \leftarrow x * x$ \\
+16.    \qquad $y \leftarrow y - 1$ \\
+17.    \qquad $y \leftarrow y / 2$ \\
+18.    \qquad return $exponent\_helper(x, y)$\\
+19. end if \\
+\end{algorithmic}
+
+\end{algorithm}
+A helper function called exponent\_helper is defined which calculates $x^y$. In the base case when $y = 0$, we return 1, otherwise when $y = 1$ we return x. When x is even we recurse on $x = x* x$ and $y = y /2$. In case when x is odd we recurse on $x = x* x$ and $y = (y-1)/ 2$. In the end, in our main function power\_function\_recursive we multiply the result of exponent\_helper to the value of a and return our result.
+
+
+\subsection*{Advantages and Disadvantages}
+\subsubsection*{Algorithm 1:}
+Advantages:\\
+1. In terms of space complexity, iterative algorithms don't suffer from stack overflow because all operations are done on the heap. \\
+2. They are easy to comprehend by humans and have better readability.\\
+Disadvantage:\\
+1. The time complexity of the iterative algorithm is $O (n)$, hence it is not very efficient for larger inputs in terms of time.  \\
+2. Proper terminating condition for loop is important or else it might lead to infinite looping.
+\subsubsection*{Algorithm 2:}
+Advantages: \\
+1. The time complexity of the recursive algorithm is $O (log n)$. This recursive algorithm is optimized (tail recursive) so that we don't get stack overflow error and it handles large inputs better. \\
+2. Recursion has higher maintainability than looping. Handling the base case properly requires little or no modifications.\\
+Disadvantages:\\
+1. Due to the continuous allocation of memory space leading to a stack overflow, efficiency is significantly affected. \\
+2. It is difficult to comprehend. A certain level of expertise is required for understanding it vividly.
+\subsubsection*{Conclusion}
+Recursive algorithm which is based on Divide and Conquer Algorithmic Strategy is preferred over iterative algorithm  
+
+\begin{thebibliography}{9}
+\bibitem{TutorialsPoint}
+TutorialsPoint,\\
+\url{https://www.tutorialspoint.com/java/lang/math_pow.htm}
+\bibitem{geeksforgeeks}
+GeeksforGeeks,\\
+\url{https://www.geeksforgeeks.org/write-a-c-program-to-calculate-powxn/}
+\bibitem{MathBitsNotebook}
+MathBitsNotebook,\\
+\url{https://mathbitsnotebook.com/Algebra1/FunctionGraphs/FNGTypeExponential.html}
+\end{thebibliography}
+\end{document}
+
