@@ -165,6 +165,7 @@ public class ScientificCalculator {
 		}
 	
 	public static double powerHandler(double x, int n) {
+//		recursive logic for power
 		if(n==0) return 1;
 		if(n==1) return x;
 		if(n%2 == 0) 
@@ -174,8 +175,10 @@ public class ScientificCalculator {
 	
 	public static double f5Power(double x, int n) {
 		if(n < 0) {
+//			if n is -ve 
 			return 1.0/powerHandler(x,Math.abs(n));
 		}
+//		n is +ve
 		return powerHandler(x,n);
 	}
 	
@@ -190,6 +193,7 @@ public class ScientificCalculator {
     }
 	
 	public static String checkValid() {
+//		this function validate the input and thier types to be matched.
 		Scanner sc = new Scanner(System.in);
 		String a = sc.next();
 		
@@ -198,6 +202,7 @@ public class ScientificCalculator {
 		}else {
 			try {
 				double tempa = Double.parseDouble(a);
+//				ranging from -100000 to 100000
 				if(tempa > -100000 && tempa <= 100000) {
 					return a;
 				}else {
@@ -237,6 +242,7 @@ public class ScientificCalculator {
 			y = f5Power(tempb,tempx);
 			
 		}
+//		Result -> a*b^x
 		System.out.println("Result = "+ tempa* y +"\n");
 	}
 	
@@ -277,6 +283,7 @@ public class ScientificCalculator {
 			function3or4();
 			menu();
 		case 3:
+//			taking magical number such as 'e' as input - every input has been taken in string 
 			System.out.println("\nDetails of ab^x");
 			String a,b,x;
 			System.out.println("Please enter the value of ");
