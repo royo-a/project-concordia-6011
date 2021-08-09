@@ -3,7 +3,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class ShagunFunction5or6 {
-
+//Testing for function5or6, function 5 y(x)=ab^x
 	@Test
 	public void test() {
 //		fail("Not yet implemented");
