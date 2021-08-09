@@ -179,15 +179,6 @@ public class ScientificCalculator {
 		return powerHandler(x,n);
 	}
 	
-	public static long power(long b, long x) {
-	    if (x < 0) {
-	    	return power(b, x+1)/b;
-	    }else if(x == 0) {
-	    	return 1;
-	    }else {
-	    	return b*power(b, x-1);
-		}
-	  }
 	
 	public static double exponential(int n){
 		int x = 1;
@@ -292,15 +283,12 @@ public class ScientificCalculator {
 			
 			System.out.print("a = ");
 			a = checkValid();
-//			a = input.next();
 			
 			System.out.print("b = ");
 			b = checkValid();
-//			b = input.next();
 			
 			System.out.print("x = ");
 			x = checkValid();
-//			x = input.next();
 			
 			function5or6(a,b,x);
 			menu();
