@@ -164,7 +164,22 @@ public class ScientificCalculator {
 			
 		}
 	
-	public static float power(float b, float x) {
+	public static double powerHandler(double x, int n) {
+		if(n==0) return 1;
+		if(n==1) return x;
+		if(n%2 == 0) 
+			return powerHandler(x*x, n/2);
+		return x*powerHandler(x*x, n/2);
+	}
+	
+	public static double f5Power(double x, int n) {
+		if(n < 0) {
+			return 1.0/powerHandler(x,Math.abs(n));
+		}
+		return powerHandler(x,n);
+	}
+	
+	public static long power(long b, long x) {
 	    if (x < 0) {
 	    	return power(b, x+1)/b;
 	    }else if(x == 0) {
@@ -174,9 +189,9 @@ public class ScientificCalculator {
 		}
 	  }
 	
-	public static float exponential(int n){
+	public static double exponential(int n){
 		int x = 1;
-        float sum = 1;
+        double sum = 1;
         for (int i = n - 1; i > 0; --i )
             sum = 1 + x * sum / i;
   
@@ -191,8 +206,13 @@ public class ScientificCalculator {
 			return a;
 		}else {
 			try {
-				float tempa = Float.parseFloat(a);
-				return a;
+				double tempa = Double.parseDouble(a);
+				if(tempa > -100000 && tempa <= 100000) {
+					return a;
+				}else {
+					System.out.println("Please provide input ranging from -100000 to 100000");
+				}
+				
 			}catch(NumberFormatException e) {
 				System.out.println("Invalid Input of a - "+e);
 			}
@@ -202,29 +222,31 @@ public class ScientificCalculator {
 	}
 	
 	public static void function5or6(String a, String b, String x) {
-		float y = 0;
-		float tempa = 0, tempb = 0, tempx = 0;
+		double y;
+		double tempa = 0, tempb = 0;
+		int tempx = 0;
 		
 		if(a.equals("e")) {
 			tempa = 1;
 		}else {
-			tempa = Float.parseFloat(a);
+			tempa = Long.parseLong(a);
 		}
 		
 		if(b.equals("e")) {
 			y = exponential(Integer.parseInt(x));
 			
 		}else {
-			tempb = Float.parseFloat(b);
+			tempb = Double.parseDouble(b);
 			if(x.equals("e")) {
 				tempx = 1;
 			}else {
-				tempx = Float.parseFloat(x);
+				tempx = Integer.parseInt(x);
 			}
-		    y = power(tempb, tempx);
+			
+			y = f5Power(tempb,tempx);
+			
 		}
-		y = tempa * y;
-		System.out.println("Result = "+y+"\n");
+		System.out.println("Result = "+ tempa* y +"\n");
 	}
 	
 	public static void function7or8() {
