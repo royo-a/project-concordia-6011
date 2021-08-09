@@ -1,0 +1,80 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[margin=1.00in]{geometry}
+\title{Problem 4\\
+\large Eclipse Debugger, Achieved Quality Attributes and Quality Check}
+\author{Shagun Sharma, ID - 40138455}
+ \date{}
+\begin{document}
+\maketitle
+\section{Eclipse Debugger}
+    Debugging is the process of finding and fixing faults, flaws, and anomalies in software. It's an essential ability for any Java developer because it aids in the detection of minor bugs that aren't obvious during code reviews or only occur when a specific condition is met.
+    \\ \\ \textbf{Debugger Used :} Inbuilt debugger offered by Eclipse Java Development Tools (JDT). 
+    \\ \\Following are the advantages and disadvantages of using debugger in the program.
+    \subsection{Advantages}
+    \begin{itemize}
+        \item Debugger promptly reports an erroneous state. This allows for earlier fault detection and makes the software development process stress-free and trouble-free.
+        \item Debugging aids the developer in eliminating redundant and unwanted data.
+        \item Debugging allows developers to avoid writing complex one-time testing code, which reduces resources and time during software development.
+    \end{itemize}
+    
+    \subsection{Disadvantages}
+    \begin{itemize}
+        \item When the execution is halted inside an invariant, the debugger isn't particularly useful.
+        \item If you use any of the previously unsupported expressions in a breakpoint condition, the condition will always return True since the evaluation is failing. In this instance, the debugger will come to a halt.
+    \end{itemize}
+
+\section{Achieved Quality Attributes}
+
+    \subsection{Maintainability}
+        \begin{itemize}
+            \item Common practices has been adapted within a group to avoid ambiguities.
+            \item Useful comments added in the code where it is required.
+            \item Avoided global scoping for common variables and functions.
+            \item Refactored code once every member merged their code to the github branch.
+        \end{itemize}
+    
+   
+    \subsection{Robustness}
+        \begin{itemize}
+            \item Usage of exception for exceptional test cases.
+            \item Narrowed the variable scope as far as possible in the code.
+            \item Error handling done on the code.
+            \item Usage of mutable variable over creating new variables.
+        \end{itemize}
+  
+    
+    \subsection{Usable}
+        \begin{itemize}
+            \item Simple console interface provided for user input.
+            \item Error messages are given in wrong input.
+            \item Success messages are given for results.
+            \item Suggestions are given when user encountered any difficulties while using calculator.
+        \end{itemize}
+        
+    \subsection{Correctness}
+        \begin{itemize}
+            \item Coding standards is followed.
+            \item Proper testing practices has been done on the function assigned. 
+            \item JUnit Testing has implemented to check the correctness. 
+        \end{itemize}
+    
+   
+    \subsection{Efficiency}
+    \begin{itemize}
+        \item The main focus on readability is given to the code.4
+        \item The program takes not less than two or three nanoseconds.
+    \end{itemize}
+    
+    \section{Quality Check of Source Code}
+    It's a programming tool that helps programmers write Java code that follows a set of rules. It automates the process of inspecting Java code, saving humans the time and effort of doing so. It's ideal for projects that want to enforce a coding standard.
+    \subsection{Advantages}
+    \begin{itemize}
+        \item The checkstyle is portable between different IDEs.
+        \item Easily integrate as a pre-commit hook or into your build tool into your Software Configuration Management.
+        \item Checkstyle is a stand-alone framework, integrating it with your other tools is considerably easier.
+    \end{itemize}
+    \subsection{Disadvantages}
+    \begin{itemize}
+        \item Programmers should have enough knowledge of quality check tools before implementing in the code.
+    \end{itemize}
+\end{document}
