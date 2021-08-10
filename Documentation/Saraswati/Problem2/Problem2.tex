@@ -1,0 +1,171 @@
+\documentclass[a4paper,12pt]{article}
+
+% defining margin for the document
+\usepackage[margin=1.00in]{geometry}
+
+% these packages are used for images
+\usepackage{graphicx}
+
+\title{Problem 2: Requirements Specification}
+\author{Saraswati Saud \\
+Student ID: 40115097}
+\date{}
+\begin{document}
+\maketitle
+\section{Introduction}
+    \subsection{Definitions and Abbreviations}
+    \begin{center}
+    \begin{tabular}{||c c||} 
+     \hline
+     Terms & Definitions \\ 
+     \hline\hline
+     FR & Functional Requirement \\ 
+     \hline
+     NFR & Non-Functional Requirement \\
+     \hline
+     User & Someone who interacts with the system \\
+     \hline
+     System & Software Program for calculation of Gamma Function \\
+     \hline
+    \end{tabular}
+    \end{center}
+     
+    \subsection{Constraints and Assumptions}
+    \begin{itemize}
+        \item User should provide input for ‘x’.
+        \item Based on the function characteristics, the value of ‘x’ should either be positive integer or half-integer value.
+        \item The input value cannot be 0.
+    \end{itemize}
+    
+    \section{Requirements}
+        \subsection{Functional Requirements}
+        \begin{center}
+        \begin{tabular}{||c c||} 
+         \hline
+         ID & FR1 \\ 
+         \hline
+         Type & Functional \\
+         \hline
+         Owner & Saraswati \\
+         \hline
+         Description & System should prompt the user to enter the value of ‘x’ \\
+         \hline
+         Rationale & To get user input and start calculation \\
+         \hline
+        \end{tabular}
+        \end{center}
+        
+        \begin{center}
+        \begin{tabular}{||c c||} 
+         \hline
+         ID & FR2 \\ 
+         \hline
+         Type & Functional \\
+         \hline
+         Owner & Saraswati \\
+         \hline
+         Description & System should display an error message when entered value is not a number \\
+         \hline
+         Rationale & For calculations, input should be numbers only \\
+         \hline
+        \end{tabular}
+        \end{center}
+        
+        \begin{center}
+        \begin{tabular}{||c c||} 
+         \hline
+         ID & FR3 \\ 
+         \hline
+         Type & Functional \\
+         \hline
+         Owner & Saraswati \\
+         \hline
+         Description & System should display an error message if a user entered negative, zero or positive non-half integer \\
+         \hline
+         Rationale & For calculations, input should only be positive integer or half-integer value \\
+         \hline
+        \end{tabular}
+        \end{center}
+        
+        \begin{center}
+        \begin{tabular}{||c c||} 
+         \hline
+         ID & FR4 \\ 
+         \hline
+         Type & Functional \\
+         \hline
+         Owner & Saraswati \\
+         \hline
+         Description & User should have an option to exit the program anytime during the use \\
+         \hline
+         Rationale & If user is done with the calculations \\
+         \hline
+        \end{tabular}
+        \end{center}
+        
+        \subsection{Non-Functional Requirements}
+        \begin{center}
+        \begin{tabular}{||c c||} 
+         \hline
+         ID & NFR1 \\ 
+         \hline
+         Type & Non-Functional \\
+         \hline
+         Owner & Saraswati \\
+         \hline
+         Description & The error message displayed should be appropriate and helpful for the user. \\
+         \hline
+         Rationale & User should be able to know what went wrong \\
+         \hline
+        \end{tabular}
+        \end{center}
+        
+        \begin{center}
+        \begin{tabular}{||c c||} 
+         \hline
+         ID & NFR2 \\ 
+         \hline
+         Type & Non-Functional \\
+         \hline
+         Owner & Saraswati \\
+         \hline
+         Description & The text-based interface should be user friendly \\
+         \hline
+         Rationale & It should be easy for the user to use the system \\
+         \hline
+        \end{tabular}
+        \end{center}
+        
+        \begin{center}
+        \begin{tabular}{||c c||} 
+         \hline
+         ID & NFR3 \\ 
+         \hline
+         Type & Non-Functional \\
+         \hline
+         Owner & Saraswati \\
+         \hline
+         Description & The displayed result should be as accurate as possible \\
+         \hline
+         Rationale & Incorrect output should not be displayed \\
+         \hline
+        \end{tabular}
+        \end{center}
+        
+        \begin{center}
+        \begin{tabular}{||c c||} 
+         \hline
+         ID & NFR4 \\ 
+         \hline
+         Type & Non-Functional \\
+         \hline
+         Owner & Saraswati \\
+         \hline
+         Description & Calculation time should be less than 1 second \\
+         \hline
+         Rationale & Waiting a long time for the output might not be desired for the user \\
+         \hline
+        \end{tabular}
+        \end{center}
+    
+\end{document}
