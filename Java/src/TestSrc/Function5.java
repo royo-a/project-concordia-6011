@@ -1,3 +1,5 @@
+package TestSrc;
+
 import java.util.Scanner;
 /**
  * SOEN 6011 F5 = ab^x

@@ -1,3 +1,5 @@
+package TestSrc;
+
 import java.util.Scanner;
 
 /**
@@ -9,7 +11,7 @@ import java.util.Scanner;
 public class Power {
 	public static int iterations = 13;
 	/**
-	 *Recursive Power Function
+	 *Recursive TestSrc.Power Function
 	 *Divide and Conquer Algorithm
 	 */
 	public static  double basicPower(double x, int y) // various cases
