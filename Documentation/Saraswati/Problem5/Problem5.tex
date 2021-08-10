@@ -1,0 +1,73 @@
+\documentclass[a4paper,12pt]{article}
+
+% defining margin for the document
+\usepackage[margin=1.00in]{geometry}
+
+% these packages are used for images
+\usepackage{graphicx}
+
+\title{Problem 5: Source Code Review}
+\author{Saraswati Saud \\
+Student ID: 40115097}
+\date{}
+\begin{document}
+\maketitle
+\section{Source code review of Function F5: ab$^x$}
+    \subsection{Introduction}
+    The function provided for the source code review purpose was ab$^x$ is a power function. The code was reviewed based on the coding standards that the developer has followed while writing the code. For this, I reviewed coding practices, non-functional requirements and overall structure of the code.
+    
+    \subsection{Code Review Checklist}
+    Following are the checklists of the standard code review guidelines which was used for reviewing the source code:
+    \begin{enumerate}
+        \item Don’t repeat yourself (Avoid duplication)
+        \item Functionality of the code should work properly
+        \item Use of meaningful class, method and variables names
+        \item Don’t ignore the exception in the code
+        \item Avoid creating unnecessary class, methods, variables and objects.
+        \item Proper comments have been added
+        \item Unnecessary packages should not be imported
+        \item Class, function should not be too lengthy
+        \item Code must have unit test cases
+        \item Proper error message should be displayed
+    \end{enumerate}
+    
+    \subsection{Review Approach}
+    Several steps were followed while reviewing the source code.
+    \begin{itemize}
+        \item First, the code was reviewed well enough to check the naming convention, proper comments in the class and methods, and test cases.
+        \item Second, the code was run to check whether the functionality properly works or not.
+        \item Third, test cases were run to check whether all the test cases pass or not.
+    \end{itemize}
+    
+    \subsection{Code Review Results}
+    \begin{center}
+    \begin{tabular}{||c c c||} 
+     \hline
+     Checklist & Description & Result \\ 
+     \hline\hline
+     1 & Duplicate Code & PASS \\ 
+     \hline
+     2 & Functionality of the code & PASS \\
+     \hline
+     3 & Naming Convention & PASS \\
+     \hline
+     4 & Exception Handling & PASS \\
+     \hline
+     5 & No unnecessary class, methods and variables & PASS \\ 
+     \hline
+     6 & Useful comments & PASS \\
+     \hline
+     7 & No unnecessary imports & PASS \\
+     \hline
+     8 & No lengthy code & PASS \\
+     \hline
+     9 & Must have unit test cases & PASS \\
+     \hline
+     10 & Proper error message & PASS \\
+     \hline
+    \end{tabular}
+    \end{center}
+    
+    \subsection{Conclusion}
+    From the above, it is noted that the code is well written and all the necessary quality attributes are fulfilled. The only flaw I could found was missing few comments in the function body.
+\end{document}
