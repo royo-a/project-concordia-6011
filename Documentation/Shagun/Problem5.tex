@@ -1,0 +1,73 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[margin=1.00in]{geometry}
+
+\title{Problem 5\\
+\large Source Code Review}
+\author{Shagun Shagun, ID - 40138455}
+ \date{}
+\begin{document}
+\maketitle %To display the title in the document.
+\maketitle
+\section{Assigned Function - $x^y$}
+    \subsection{Standard Guidelines}
+   The source code review is based on the standard practices that a developer has used while writing the code. The coverage of all standard guidelines on which the report has generated is listed below.
+   \begin{enumerate}
+        \item The code should eliminate nested if statement.
+       \item The code should follow a coding style guide.
+       \item The code should have meaningful method and variable names.
+       \item The author should annotate the comments not exceeding 10 to 20 lines.
+       \item The class program should not import unnecessary packages.
+       \item The code should have low coupling and high cohesion.
+       \item The code should avoid the global scoping for common variables and functions.
+       \item The code should avoid memory leakage.
+       \item The code should narrow the variable scope as far as possible in the code.
+       \item Usage of mutable variable over creating new variables in object oriented language.
+   \end{enumerate}
+   
+    \subsection{Review Approach}
+    Used Approach - Lightweight Code Review
+    \begin{itemize}
+        \item Walk-through the code.
+        \item Executed the code in run time environment and also used debugger.
+        \item Inspection on comment length, Checking dependencies among the components, Check on unused variables.
+        \item Observing global scoping of the functions and variables.
+    \end{itemize}
+    
+    \subsection{Results}
+    \begin{center}
+    \begin{tabular}{||c c c||} 
+     \hline
+     No. & Description & Result \\ 
+     \hline\hline
+     1 & Use of annotation in the code  & PASS \\ 
+     \hline
+     2 & No usage of nested ifs statement & PASS \\
+     \hline
+     3 & No unused variable found & PASS \\
+     \hline
+     4 & No memory leakage & PASS \\
+     \hline
+     
+     \hline
+     5 & Usage of meaningful method and variable names & PASS \\
+     \hline
+     
+     \hline
+     6 & Not exceeding source line of  code & PASS \\
+     \hline
+     7 & No deadlock encountered & PASS \\
+     \hline
+     8 & No dependency found in the code & PASS \\
+     \hline
+     9 & No Error found in the code & PASS \\
+     \hline
+     9 & No Warning found in the code & PASS \\
+     \hline
+     10 & No unnecessary package is included in the code  & PASS \\
+     \hline
+    \end{tabular}
+    \end{center}
+    
+    \subsection{Conclusion}
+    Overall, the code is well-structured and well-written. It is clear from the code that readability is a developer's primary focus. The only suggestion I have is to retain logs because they can help with debugging.
+\end{document}
