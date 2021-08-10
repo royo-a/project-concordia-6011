@@ -1,0 +1,187 @@
+% We need to specify the document type and the encoding first
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+
+% defining margin for the document
+\usepackage[margin=1in]{geometry}
+
+% use these packages for tables
+\usepackage{booktabs}
+\usepackage{tabu}
+\usepackage{multirow}
+
+% use for making captions beautiful
+\usepackage[labelfont=bf, skip=5pt, font=small]{caption}
+
+% these packages are used for images
+\usepackage{graphicx}
+
+% package for color
+\usepackage{xcolor}
+
+% position images precisely at location in text
+\usepackage{float}
+
+
+
+% ----------------------Rules to follow document wide------------------------------
+% keep 1em space between blank lines
+\setlength{\parskip}{1em}
+% don't indent new paragraphs
+\setlength{\parindent}{0em}
+
+\title{Answer to Problem 2}
+\author{Arnab Roy}
+
+\begin{document}
+
+\maketitle
+
+\section{Requirements and assumptions for Tangent function}
+The requirements and assumptions of the function tan(x) follow ISO/IEC/IEEE 29148 standards. A priority of 1 means most important and a priority of 5 means least important.
+\subsection{Assumptions}
+% defining a table
+% h! means put the table here. Latex will place the table to its liking by default. By h! we are commanding to put it right below the upper paragraph. Other options are b! and t! for bottom and top.
+\begin{tabular}{ |p{4cm} | p{10cm}| }
+ \hline
+ \multicolumn{2}{|l|}{\textbf{Assumption ID: F2-ASSUMP1}} \\
+ \hline
+ \textbf{Version:} & 1.0\\
+ \textbf{Type:} & Functional\\
+ \textbf{Owner:} & Arnab Roy\\
+ \textbf{Priority:} & 1\\
+ \textbf{Difficulty:} & Easy\\
+ \textbf{Description:} & The user shall provide input in integers \\
+ \textbf{Rationale:} & To keep the implementation simple and generate accurate outputs with a simple algorithm \\
+ \hline
+\end{tabular}
+\\[10pt]
+\begin{tabular}{ |p{4cm} | p{10cm}| }
+ \hline
+ \multicolumn{2}{|l|}{\textbf{Assumption ID: F2-ASSUMP2}} \\
+ \hline
+ \textbf{Version:} & 1.0\\
+ \textbf{Type:} & Functional\\
+ \textbf{Owner:} & Arnab Roy\\
+ \textbf{Priority:} & 1\\
+ \textbf{Difficulty:} & Easy\\
+ \textbf{Description:} & The user shall provide input in range -2$^{31}$ to 2$^{31}$-1 \\
+ \textbf{Rationale:} & The range for the \texttt{int} primitive type is from -2$^{31}$ to 2$^{31}$-1 and to keep inputs small for a simple implementation\\
+ \hline
+\end{tabular}
+\\[10pt]
+\begin{tabular}{ |p{4cm} | p{10cm}| }
+ \hline
+ \multicolumn{2}{|l|}{\textbf{Assumption ID: F2-ASSUMP3}} \\
+ \hline
+ \textbf{Version:} & 1.0\\
+ \textbf{Type:} & Non-functional\\
+ \textbf{Owner:} & Arnab Roy\\
+ \textbf{Priority:} & 3\\
+ \textbf{Difficulty:} & Easy\\
+ \textbf{Description:} & The factorials for the calculation may be pre-stored in an array \\
+ \textbf{Rationale:} & To speed up the calculation of the output and execution of the algorithm\\
+ \hline
+\end{tabular}
+\subsection{Requirements}
+\begin{tabular}{ |p{4cm} | p{10cm}| }
+ \hline
+ \multicolumn{2}{|l|}{\textbf{Requirement ID: F2-REQ1}} \\
+ \hline
+ \textbf{Version:} & 1.0\\
+ \textbf{Type:} & Functional\\
+ \textbf{Owner:} & Arnab Roy\\
+ \textbf{Priority:} & 1\\
+ \textbf{Difficulty:} & Easy\\
+ \textbf{Description:} & When the user enters a value for which cos(x)=0, an exception shall be thrown with an useful error message \\
+ \textbf{Rationale:} & Tangent function does not have a valid output for angle=0 and the user shall be let known about this\\
+ \hline
+\end{tabular}
+\\[10pt]
+\begin{tabular}{ |p{4cm} | p{10cm}| }
+ \hline
+ \multicolumn{2}{|l|}{\textbf{Requirement ID: F2-REQ2}} \\
+ \hline
+ \textbf{Version:} & 1.0\\
+ \textbf{Type:} & Functional\\
+ \textbf{Owner:} & Arnab Roy\\
+ \textbf{Priority:} & 1\\
+ \textbf{Difficulty:} & Easy\\
+ \textbf{Description:} & If the output is -0.0, the function shall remove any signs and return 0.0 \\
+ \textbf{Rationale:} & Using a sign with 0 is redundant and might be confusing to the user\\
+ \hline
+\end{tabular}
+\\[10pt]
+\begin{tabular}{ |p{4cm} | p{10cm}| }
+ \hline
+ \multicolumn{2}{|l|}{\textbf{Requirement ID: F2-REQ3}} \\
+ \hline
+ \textbf{Version:} & 1.0\\
+ \textbf{Type:} & Non-functional\\
+ \textbf{Owner:} & Arnab Roy\\
+ \textbf{Priority:} & 3\\
+ \textbf{Difficulty:} & Medium\\
+ \textbf{Description:} & The time complexity of the program should be in O(n) \\
+ \textbf{Rationale:} & To keep program execution fast and within 1 second\\
+ \hline
+\end{tabular}
+\\[10pt]
+\begin{tabular}{ |p{4cm} | p{10cm}| }
+ \hline
+ \multicolumn{2}{|l|}{\textbf{Requirement ID: F2-REQ4}} \\
+ \hline
+ \textbf{Version:} & 1.0\\
+ \textbf{Type:} & Non-functional\\
+ \textbf{Owner:} & Arnab Roy\\
+ \textbf{Priority:} & 1\\
+ \textbf{Difficulty:} & Hard\\
+ \textbf{Description:} & All angles above 90 degree shall be converted within 90 degrees\\
+ \textbf{Rationale:} & Calculation of smaller values is faster and all angles greater than 90 degrees can be converted within 90 degrees, so it is unnecessary to calculate higher values\\
+ \hline
+\end{tabular}
+\\[10pt]
+\begin{tabular}{ |p{4cm} | p{10cm}| }
+ \hline
+ \multicolumn{2}{|l|}{\textbf{Requirement ID: F2-REQ5}} \\
+ \hline
+ \textbf{Version:} & 1.0\\
+ \textbf{Type:} & Functional\\
+ \textbf{Owner:} & Arnab Roy\\
+ \textbf{Priority:} & 1\\
+ \textbf{Difficulty:} & Easy\\
+ \textbf{Description:} & The output of the function shall be a double\\
+ \textbf{Rationale:} & Most outputs of tangents are in decimal and removing the fractional part would make the output inaccurate\\
+ \hline
+\end{tabular}
+\\[10pt]
+\begin{tabular}{ |p{4cm} | p{10cm}| }
+ \hline
+ \multicolumn{2}{|l|}{\textbf{Requirement ID: F2-REQ6}}\\
+ \hline
+ \textbf{Version:} & 1.0\\
+ \textbf{Type:} & Non-functional\\
+ \textbf{Owner:} & Arnab Roy\\
+ \textbf{Priority:} & 1\\
+ \textbf{Difficulty:} & Medium\\
+ \textbf{Description:} & The output of the tangent function shall be accurate upto 6 digits after the decimal\\
+ \textbf{Rationale:} & Implementation of a simple algorithm has the trade-off of accuracy\\
+ \hline
+\end{tabular}
+\\[10pt]
+\begin{tabular}{ |p{4cm} | p{10cm}| }
+ \hline
+ \multicolumn{2}{|l|}{\textbf{Requirement ID: F2-REQ7}}\\
+ \hline
+ \textbf{Version:} & 1.0\\
+ \textbf{Type:} & Non-functional\\
+ \textbf{Owner:} & Arnab Roy\\
+ \textbf{Priority:} & 1\\
+ \textbf{Difficulty:} & Medium\\
+ \textbf{Description:} & The output shall be rounded to a value of 7 digits after the decimal\\
+ \textbf{Rationale:} & Since the algorithm is accurate upto 6 decimal places and sometimes 7, the output would be rounded to 7 digits after the decimal\\
+ \hline
+\end{tabular}
+\\
+
+
+\end{document}
