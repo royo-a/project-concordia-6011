@@ -164,7 +164,7 @@ public class ScientificCalculator {
 			
 		}
 	
-	public static double powerHandler(double x, int n) {
+		public static double powerHandler(double x, int n) {
 //		recursive logic for power
 		if(n==0) return 1;
 		if(n==1) return x;
@@ -192,32 +192,30 @@ public class ScientificCalculator {
         return sum;
     }
 	
-	public static String checkValid() {
-//		this function validate the input and thier types to be matched.
-		Scanner sc = new Scanner(System.in);
-		String a = sc.next();
-		
-		if(a.equals("e")) {
-			return a;
+	public static String checkValid(String input) {
+//		this function validate the input and their types to be matched.
+	
+		if(input.equals("e")) {
+			return input;
 		}else {
 			try {
-				double tempa = Double.parseDouble(a);
+				double tempa = Double.parseDouble(input);
 //				ranging from -100000 to 100000
 				if(tempa > -100000 && tempa <= 100000) {
-					return a;
+					return input;
 				}else {
 					System.out.println("Please provide input ranging from -100000 to 100000");
 				}
 				
 			}catch(NumberFormatException e) {
-				System.out.println("Invalid Input of a - "+e);
+				System.out.println("Invalid Input - "+e);
 			}
-			System.out.println("Please enter again : ");
-			return checkValid();
+			System.out.println("Please enter again");
+			return null;
 		}
 	}
 	
-	public static void function5or6(String a, String b, String x) {
+	public static String function5or6(String a, String b, String x) {
 		double y;
 		double tempa = 0, tempb = 0;
 		int tempx = 0;
@@ -230,7 +228,8 @@ public class ScientificCalculator {
 		
 		if(b.equals("e")) {
 			y = exponential(Integer.parseInt(x));
-			y = y * tempa;
+			y = tempa*y;
+			
 		}else {
 			tempb = Double.parseDouble(b);
 			if(x.equals("e")) {
@@ -241,7 +240,7 @@ public class ScientificCalculator {
 			
 			if(tempb != 0.0) {
 				y = f5Power(tempb,tempx);
-				y = tempa * y;
+				y = tempa*y;
 			}else {
 				y = 0;
 			}
@@ -249,6 +248,7 @@ public class ScientificCalculator {
 		}
 //		Result -> a*b^x
 		System.out.println("Result = "+ y +"\n");
+		return Double.toString(y);
 	}
 	
 	public static void function7or8() {
@@ -289,20 +289,34 @@ public class ScientificCalculator {
 			menu();
 		case 3:
 //			taking magical number such as 'e' as input - every input has been taken in string 
+			Scanner sc = new Scanner(System.in);
 			System.out.println("\nDetails of ab^x");
 			String a,b,x;
-			System.out.println("Please enter the value of ");
-			
-			System.out.print("a = ");
-			a = checkValid();
-			
-			System.out.print("b = ");
-			b = checkValid();
-			
-			System.out.print("x = ");
-			x = checkValid();
-			
-			function5or6(a,b,x);
+			System.out.print("Enter value for a = ");
+			a = sc.next();
+			a = checkValid(a);
+			while(a == null) {
+				System.out.print("Please enter value for a = ");
+				a = sc.next();
+				a =checkValid(a);
+			}
+			System.out.print("Enter value for b = ");
+			b = sc.next();
+			b = checkValid(b);
+			while(b == null) {
+				System.out.print("Please enter value for b = ");
+				b = sc.next();
+				b =checkValid(b);
+			}
+			System.out.print("Enter value for x = ");
+			x = sc.next();
+			x = checkValid(x);
+			while(x == null || x.equals("e")) {
+				System.out.print("Please enter value for x = ");
+				x = sc.next();
+				x =checkValid(x);
+			}
+			String result = function5or6(a,b,x);
 			menu();
 		case 4:
 			System.out.println("\nDetails of x^y");

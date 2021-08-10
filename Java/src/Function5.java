@@ -1,6 +1,6 @@
 import java.util.Scanner;
 /**
- * SOEN 6011 F5 = ab^x
+ * SOEN 6011, function5 F5 = ab^x
  * @author Shagun Shagun
  *
  */
@@ -97,7 +97,7 @@ public class Function5 {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("Please enter value for a = ");
+		System.out.print("Please enter value for a = ");
 		String a = sc.next();
 		a = checkValid(a);
 		while(a == null) {
@@ -105,7 +105,7 @@ public class Function5 {
 			a = sc.next();
 			a =checkValid(a);
 		}
-		System.out.println("Please enter value for b = ");
+		System.out.print("Please enter value for b = ");
 		String b = sc.next();
 		b = checkValid(b);
 		while(b == null) {
@@ -113,10 +113,10 @@ public class Function5 {
 			b = sc.next();
 			b =checkValid(b);
 		}
-		System.out.println("Please enter value for x = ");
+		System.out.print("Please enter value for x = ");
 		String x = sc.next();
 		x = checkValid(x);
-		while(x == null) {
+		while(x == null || x.equals("e")) {
 			System.out.println("Please enter value for x = ");
 			x = sc.next();
 			x =checkValid(x);
