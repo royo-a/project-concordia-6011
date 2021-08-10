@@ -230,7 +230,7 @@ public class ScientificCalculator {
 		
 		if(b.equals("e")) {
 			y = exponential(Integer.parseInt(x));
-			
+			y = y * tempa;
 		}else {
 			tempb = Double.parseDouble(b);
 			if(x.equals("e")) {
@@ -239,11 +239,16 @@ public class ScientificCalculator {
 				tempx = Integer.parseInt(x);
 			}
 			
-			y = f5Power(tempb,tempx);
+			if(tempb != 0.0) {
+				y = f5Power(tempb,tempx);
+				y = tempa * y;
+			}else {
+				y = 0;
+			}
 			
 		}
 //		Result -> a*b^x
-		System.out.println("Result = "+ tempa* y +"\n");
+		System.out.println("Result = "+ y +"\n");
 	}
 	
 	public static void function7or8() {
