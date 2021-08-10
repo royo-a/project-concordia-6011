@@ -1,5 +1,6 @@
 import static org.junit.Assert.*;
 
+import TestSrc.Power;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
@@ -32,7 +33,7 @@ public class PowerTest {
 	/**
 	 * TC 3
 	 * Testing Divide and Conquer Algorithm 
-	 * Power Law Product
+	 * TestSrc.Power Law Product
 	 */
     @Test
     public void testPowerLawProduct() {
@@ -44,7 +45,7 @@ public class PowerTest {
 	/**
 	 * TC 4
 	 * Testing Divide and Conquer Algorithm 
-	 * Power Law Division
+	 * TestSrc.Power Law Division
 	 */
     @Test
     public void testPowerLawDivision() {
