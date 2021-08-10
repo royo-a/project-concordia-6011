@@ -163,10 +163,4 @@ public class Tangent {
 
         return roundTo7Digits(result);
     }
-
-    public static void main(String[] args) {
-        System.out.println(calculateTan(25));
-        System.out.println(calculateTan(-25));
-        System.out.println(calculateCos(90));
-    }
 }
