@@ -1,6 +1,5 @@
 import static org.junit.Assert.*;
 
-import TestSrc.Function5;
 import org.junit.Test;
 /**
  * SOEN 6011 Test Cases for F5 = ab^x
