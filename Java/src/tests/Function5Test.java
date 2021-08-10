@@ -74,7 +74,7 @@ public class Function5Test {
 	}
 	
 	/**
-	 * ID = TC5
+	 * ID = TC6
 	 * Test  Case =  testing function with 0 as base and 0 in power
 	 * Function Included = function5or6
 	 * Functional Requirement ID = FR1
