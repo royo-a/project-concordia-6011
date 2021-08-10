@@ -1,3 +1,5 @@
+package tests;
+
 import TestSrc.FunctionF4;
 import org.junit.Assert;
 import org.junit.Test;
