@@ -13,6 +13,7 @@ public class Function5Test {
 	 * ID = TC1
 	 * Test Case = checking the input given by user using checkValid
 	 * Function Included = checkValid
+	 * Functional Requirement ID = FR1, FR2
 	 */
 	@Test
     public void testCheckInput() {
@@ -25,6 +26,7 @@ public class Function5Test {
 	 * ID = TC2
 	 * Test  Case =  the calculation for magical number such as "e"
 	 * Function Included = exponential, function5or6
+	 * Functional Requirement ID = FR6
 	 */
 	@Test
     public void testMagicalNumbere() {
@@ -37,6 +39,7 @@ public class Function5Test {
 	 * ID = TC3
 	 * Test  Case =  the calculation for positive and negative numbers
 	 * Function Included = function5or6
+	 * Functional Requirement ID = FR7, FR8
 	 */
 	@Test
     public void testfunction5or6AsWhole() {
@@ -48,6 +51,7 @@ public class Function5Test {
 	 * ID = TC4
 	 * Test  Case =  testing power function for the constant as base to the power x
 	 * Function Included = f5Power
+	 * Functional Requirement ID = FR3, FR8
 	 */
 	@Test
     public void testNegativeF5PowerFunction() {
@@ -59,6 +63,7 @@ public class Function5Test {
 	 * ID = TC5
 	 * Test  Case =  testing bigInteger for ab^x function
 	 * Function Included = function5or6
+	 * Functional Requirement ID = FR3, FR4
 	 */
 	@Test
     public void testBigIntegerPower() {
@@ -70,6 +75,7 @@ public class Function5Test {
 	 * ID = TC5
 	 * Test  Case =  testing function with 0 as base and 0 in power
 	 * Function Included = function5or6
+	 * Functional Requirement ID = FR1
 	 */
 	@Test
     public void testAnythingPowerZero() {
