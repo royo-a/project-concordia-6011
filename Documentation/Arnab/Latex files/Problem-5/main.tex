@@ -1,0 +1,85 @@
+% We need to specify the document type and the encoding first
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+
+% defining margin for the document
+\usepackage[margin=1in]{geometry}
+
+% use these packages for tables
+\usepackage{booktabs}
+\usepackage{tabu}
+\usepackage{multirow}
+
+% use for making captions beautiful
+\usepackage[labelfont=bf, skip=5pt, font=small]{caption}
+
+% these packages are used for images
+\usepackage{graphicx}
+
+% package for color
+\usepackage{xcolor}
+
+% position images precisely at location in text
+\usepackage{float}
+
+
+
+% ----------------------Rules to follow document wide------------------------------
+% keep 1em space between blank lines
+\setlength{\parskip}{1em}
+% don't indent new paragraphs
+\setlength{\parindent}{0em}
+
+\title{Answer to Problem 2}
+\author{Arnab Roy}
+
+
+\begin{document}
+
+\maketitle
+
+\section{Code review of \Gamma(x)}
+\subsection{Purpose}
+The purpose of this review is to check whether the quality of code in the module is degrading the quality of the system, i.e the Calculator app. Some standard guidelines have been followed to review the code. 
+\subsection{Guidelines}
+For this code review, the Google developer guidelines which is available at https://google.github.io/eng-practices/review/reviewer/looking-for.html have been followed. The guidelines are as follows:
+\begin{itemize}
+    \item Check whether the code components interact well with other code components.
+    \item The code functionality satisfies the users
+    \item Outputs from error messages are well written and articulated
+    \item Naming conventions for functions, variables, classes are good and communicate well to the user
+    \item The code has unit tests that are maintainable and not complex
+    \item The code has well written comments that add value and are not too lengthy
+    \item The code follows a style guide
+    \item The code is not over engineered
+    \item No unnecessary import statements have been used
+\end{itemize}
+\subsection{Approach}
+Several approaches were followed when reviewing the code and they are as follows:
+\begin{itemize}
+    \item The code was read through and it was identified whether the naming conventions were good and whether the comments were useful and did not exceed 100 characters per line. Effort was given to check whether any function war too large and whether it needed breaking down into smaller functions.
+    \item The code was run using a debugger line by line. The return values and error messages were checked against the requirements.
+    \item The test cases were run to check if all had passed. It was also checked whether the test cases had clearly understandable assertions. 
+    \item It was checked whether the code followed a consistent style.
+\end{itemize}
+\subsection{Results of review}
+\begin{tabular}{ |p{7cm} | p{7cm}| }
+ \hline
+ \textbf{Attribute} & \textbf{Result}\\
+ \hline
+ \textbf{Code component interaction:} & PASS\\
+ \textbf{Correct functionality:} & PASS\\
+ \textbf{Clear error messages:} & PASS\\
+ \textbf{Naming convention:} & PASS\\
+ \textbf{Unit tests:} & PASS\\
+ \textbf{Useful comments:} & PASS\\
+ \textbf{Style guide:} & PASS\\
+ \textbf{Code base not too complex:} & PASS\\
+ \textbf{No unnecessary imports:} & PASS\\
+ \hline
+\end{tabular}
+
+\subsection{Conclusion}
+The code-base of this module had all the necessary quality attributes. My only suggestion would be if in some small places, the coding styles would not be neglected, for example for the spacing around curly braces.
+
+\end{document}
