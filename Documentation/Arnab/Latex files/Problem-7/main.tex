@@ -1,0 +1,45 @@
+% We need to specify the document type and the encoding first
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+
+% defining margin for the document
+\usepackage[margin=1in]{geometry}
+
+% use these packages for tables
+\usepackage{booktabs}
+\usepackage{tabu}
+\usepackage{multirow}
+
+% use for making captions beautiful
+\usepackage[labelfont=bf, skip=5pt, font=small]{caption}
+
+% these packages are used for images
+\usepackage{graphicx}
+
+% package for color
+\usepackage{xcolor}
+
+% position images precisely at location in text
+\usepackage{float}
+
+
+
+% ----------------------Rules to follow document wide------------------------------
+% keep 1em space between blank lines
+\setlength{\parskip}{1em}
+% don't indent new paragraphs
+\setlength{\parindent}{0em}
+
+\title{Answer to Problem 2}
+\author{Arnab Roy}
+
+\begin{document}
+
+\maketitle
+
+\section{Testing the ab$^x$}
+The author of the function provided all the unit tests which were done using the JUnit library. Since we had a difference in the development environment, at first I was facing some issues with the JUnit library configuration. After resetting the configurations, JUnit worked correctly. \\
+At first I individually ran the test cases for various types of input. They all passed. Finally, I ran the test class all together and that passed as well.\\
+The IDE I was using was IntelliJ IDEA and I had JUnit 5 installed along with Juniper as dependencies. The OS I am using is MacOS 11.5.
+
+\end{document}
