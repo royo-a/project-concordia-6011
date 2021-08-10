@@ -1,9 +1,6 @@
 
-import java.util.InputMismatchException;
-import java.util.Scanner;
-
 public class Tangent {
-    private static long[] factorials = generateFactorials(19);
+    private static final long[] factorials = generateFactorials(19);
 
     // Can generate maximum 19! without overflow
     public static long[] generateFactorials(int maxTerm) {
@@ -18,6 +15,11 @@ public class Tangent {
     }
 
     public static double roundTo7Digits(double number) {
+        int sign = 1;
+        if (number < 0) {
+            sign = -1;
+            number *= -1;
+        }
         // Get the part before the decimal.
         int wholePart = (int) number;
         // We only want to work with the digits after the decimal.
@@ -46,7 +48,7 @@ public class Tangent {
         // We divide with 10e8 to get the fractional parts
         number /= 10000000;
 
-        return number;
+        return number * sign;
     }
 
     public static double calculateCos(int angle) {
@@ -96,7 +98,7 @@ public class Tangent {
 
         result = roundTo7Digits(result);
         // For 0, don't return any sign
-        return result == 0 ? result : result * signInQuadrant;
+        return result == 0 ? 0 : result * signInQuadrant;
     }
 
     public static double calculateSin(int angle) {
@@ -149,12 +151,12 @@ public class Tangent {
         }
 
         result = roundTo7Digits(result);
-        return result == 0 ? result : result * sign * signInQuadrant;
+        return result == 0 ? 0 : result * sign * signInQuadrant;
     }
 
     public static double calculateTan(int angle) {
         double result = calculateSin(angle) / calculateCos(angle);
-        if(result == Double.POSITIVE_INFINITY || result == Double.NEGATIVE_INFINITY){
+        if (result == Double.POSITIVE_INFINITY || result == Double.NEGATIVE_INFINITY) {
             throw new ArithmeticException("Tangent for an angle which is 90 degree or" +
                     " any odd multiples of 90 degree doesn't exist.");
         }
@@ -163,7 +165,8 @@ public class Tangent {
     }
 
     public static void main(String[] args) {
-        System.out.println(calculateTan(89));
+        System.out.println(calculateTan(25));
+        System.out.println(calculateTan(-25));
+        System.out.println(calculateCos(90));
     }
-
 }
