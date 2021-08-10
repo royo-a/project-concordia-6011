@@ -1,0 +1,105 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+
+\title{P5 - Source Code Review}
+\author{Pavit Srivatsasn\\ 40155323}
+\date{August 2021}
+
+\begin{document}
+
+\maketitle
+\section{Introduction}
+The source code review for function F2: (tanx) is performed manually using the tool SonarLint. SonarLint is an IDE extension that helps you detect and fix quality issues as you write code. Like a spell checker, SonarLint squiggles flaws so that they can be fixed before committing code.
+\section{Manual Review}
+    \subsection{Code Review Checklist}
+    Following are the checklists of the standard code review guidelines which was used for reviewing the source code:
+    \begin{enumerate}
+        \item Don’t repeat yourself (Avoid duplication)
+        \item Functionality of the code should work properly
+        \item Use of meaningful class, method and variables names
+        \item Don’t ignore the exception in the code
+        \item Avoid creating unnecessary class, methods, variables and objects.
+        \item Proper comments have been added
+        \item Unnecessary packages should not be imported
+        \item Class, function should not be too lengthy
+        \item Code must have unit test cases
+        \item Proper error message should be displayed
+    \end{enumerate}
+ \subsection{Code Review Results}
+    \begin{center}
+    \begin{tabular}{||c c c||} 
+     \hline
+     Checklist & Description & Result \\ 
+     \hline\hline
+     1 & Duplicate Code & PASS \\ 
+     \hline
+     2 & Functionality of the code & PASS \\
+     \hline
+     3 & Naming Convention & PASS \\
+     \hline
+     4 & Exception Handling & PASS \\
+     \hline
+     5 & No unnecessary class, methods and variables & PASS \\ 
+     \hline
+     6 & Useful comments & PASS \\
+     \hline
+     7 & No unnecessary imports & PASS \\
+     \hline
+     8 & No lengthy code & PASS \\
+     \hline
+     9 & Must have unit test cases & PASS \\
+     \hline
+     10 & Proper error message & PASS \\
+     \hline
+    \end{tabular}
+    \end{center}
+\section{SonarLint Features}
+SonarLint highlights code issues with markers on open files. It also provides an issues summary table for a selected component in the IDE, including the creation time of the issue.
+\subsection{Code Reliability}
+Catch tricky bugs to prevent undefined behaviour from impacting end-users.
+\subsection {Application Security}
+Fix vulnerabilities that compromise the app, and learn AppSec along the way with Security Hotspots.
+\subsection{Technical Debt}
+Make sure your codebase is clean and maintainable, to increase developer velocity!
+\newpage
+\section{SonarLint Result}
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=20cm]{SonarLint}
+    \caption{Sonar Lint Result for Tangent Function F2}
+    \label{fig:galaxy}
+\end{figure}
+Google Checkstyle is used for implementation.
+\subsection{Review Result 1}
+Cast one of the operands of this multiplication operation to a "double".\\
+\textbf{Code:} 
+\\number = wholePart * 10000000; $[ line : 46 ]$\\\\
+\textbf{Description:}\\
+When arithmetic is performed on integers, the result will always be an integer. You can assign that result to a long, double, or float with automatic type conversion, but having started as an int or long, the result will likely not be what you expect.
+For instance, if the result of int division is assigned to a floating-point variable, precision will have been lost before the assignment. Likewise, if the result of multiplication is assigned to a long, it may have already overflowed before the assignment.
+In either case, the result will not be what was expected. Instead, at least one operand should be cast or promoted to the final type before the operation takes place.
+\subsection{Review Result 2}
+Add a private constructor to hide the implicit public one.\\
+\textbf{Description:}\\
+Utility classes, which are collections of static members, are not meant to be instantiated. Even abstract utility classes, which can be extended, should not have public constructors.
+Java adds an implicit public constructor to every class which does not define at least one explicitly. Hence, at least one non-public constructor should be defined.
+\subsection{Review Result 3}
+Make sure this expression can't be zero before doing this division. [+2 locations]
+.\\
+\textbf{Code:} 
+\\ double result = calculateSin(angle) / calculateCos(angle); $[ line : 159]$\\\\
+\textbf{Description:}\\
+If the denominator to a division or modulo operation is zero it would result in a fatal error.
+When working with double or float, no fatal error will be raised, but it will lead to unusual result and should be avoided anyway.
+This rule supports primitive int, long, double, float as well as BigDecimal and BigInteger.
+\subsection{Review Result 4 (enviornment - ignored)} 
+Rename this package name to match the regular expression.
+.\\
+\begin{thebibliography}{9}
+\bibitem{SonarLint}
+Sonar Lint,\\
+\url{https://www.sonarsource.com/products/sonarlint/}
+\end{thebibliography}
+
+\end{document}
