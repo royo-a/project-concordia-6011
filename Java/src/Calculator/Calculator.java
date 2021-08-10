@@ -156,7 +156,7 @@ public class Calculator {
     public static double calculateTan(int angle) {
         double result = calculateSin(angle) / calculateCos(angle);
         if(result == Double.POSITIVE_INFINITY || result == Double.NEGATIVE_INFINITY){
-            throw new ArithmeticException("Tangent for an angle which is 90 degree or" +
+            throw new ArithmeticException("TestSrc.Tangent for an angle which is 90 degree or" +
                     " any odd multiples of 90 degree doesn't exist.");
         }
 
