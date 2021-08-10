@@ -1,10 +1,6 @@
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.Assert.*;
-
-import org.junit.*;
+//import static org.junit.jupiter.api.Assertions.*;
 
 class TangentTest {
 
@@ -52,16 +48,30 @@ class TangentTest {
     @Test
     void calculateTan() {
         double result = Tangent.calculateTan(45);
+        // An exception is thrown for 90 degrees
         Assertions.assertEquals(1, result);
         Exception exception = Assertions.assertThrows(ArithmeticException.class, ()->{
             Tangent.calculateTan(90);
         });
+
+        // Testing general cases
         result = Tangent.calculateTan(0);
         Assertions.assertEquals(0, result);
         result = Tangent.calculateTan(89);
         Assertions.assertEquals(57.289983, result);
         result = Tangent.calculateTan(25);
-        Assertions.assertEquals(0.4663077, Tangent.roundTo7Digits(result));
+        Assertions.assertEquals(0.4663077, result);
 
+        // Testing for negative value
+        result = Tangent.calculateTan(-25);
+        Assertions.assertEquals(-0.4663077, result);
+
+        // Testing for highest value
+        result = Tangent.calculateTan(-2147483648);
+        Assertions.assertEquals(1.2799417, result);
+
+        // Testing for highest value
+        result = Tangent.calculateTan(2147483647);
+        Assertions.assertEquals(-1.3270449, result);
     }
 }

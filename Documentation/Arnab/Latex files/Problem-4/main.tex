@@ -57,7 +57,7 @@ The debugger is very resource intensive. It can easily slow down a machine with 
 \section{Effort to make the program better}
 When writing the program, focus was given to make it correct, efficient, maintainable, robust, and usable. An explanation of the steps taken to make them such is given below.
 \subsection{Correctness}
-According to the requirements, the program needs to be correct up-to 7 decimal digits of a Casio scientific calculator. The result of the tangent function in the program depends on the results of the sine and the cosine functions. These functions were implemented using the Taylor series and severals steps were taken to increase their accuracy. 
+According to the requirements, the program needs to be correct up-to 6 decimal digits of a Casio scientific calculator. The result of the tangent function in the program depends on the results of the sine and the cosine functions. These functions were implemented using the Taylor series and severals steps were taken to increase their accuracy. 
 \begin{itemize}
     \item At first, only 3 terms from the Taylor series were considered, which later was increased to 9. The inclusion of more terms  increased the accuracy but was not enough.
     \item It was observed that for smaller angle values, the calculations were very accurate. But for higher values, the results started to deviate. So, all angles were first converted within 360 degrees. 
