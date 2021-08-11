@@ -1,0 +1,72 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+
+\title{SOEN6011- P4}
+\author{Pavit Srivatsan\\ 40155323}
+\date{August 2021}
+
+\begin{document}
+
+\maketitle
+
+\section{Debugging}
+Debugging is the process of detecting and removing existing and potential errors in a software code that can cause it to behave unexpectedly or crash.
+\subsection{Debugging the program in Eclipse IDE}
+\subsection*{A.Setting up breakpoints}
+Suitable breakpoints are chosen. We must be careful in choosing
+breakpoints to understand the program flow. There are certain cases in which breakpoints can be skipped based on the program logic.
+\subsection*{B.Debug Configurations}
+A Java program can be debugged simply by right-clicking on the Java editor class file from Package explorer. Select Debug As → Java Application or use the shortcut Alt + Shift + D, J instead. 
+\subsection*{C.Debug perspective}
+In debug perspective we can skip breakpoints, step into, step over or resume statement executions. We can modify variable values in the variables tab in debug perspective.
+\subsection{Advantages}
+\begin{itemize}
+    \item we understand program flow and logic better
+    \item Identify errors and bugs better instead of printing variable values
+    \item Modify the program to be more efficient
+\end{itemize}
+\section{Quality Attributes}
+\subsection{Correctness}
+The values are more precise. Since the calculator is scientific in nature, correct values are mandatory. Results are accurate as possible. 
+\subsection{Efficiency}
+The algorithm chosen is the Divide and Conquer Algorithm which is more efficient than the Iterative algorithm. The time complexity of this algorithm (O(log(n))) is better than Iterative (O(n)).
+\subsection{Maintainability}
+The function is developed from scratch and hence it requires helper functions. These functions are placed appropriately. Necessary comments are added to make it more maintainable.
+\subsection{Robustness}
+All relevant errors are added so that users are directed to enter proper inputs. It handles various errors and exceptions.
+\subsection{Usability}
+The program is run in a menu driven model. Menu driven model is easy to use and comprehend. 
+\section{CheckStyle}
+Checkstyle is a development tool to help programmers write Java code that adheres to a coding standard. It automates the process of checking Java code to spare humans of this boring (but important) task. This makes it ideal for projects that want to enforce a coding standard [1].
+\subsection{Features}
+Checkstyle can check many aspects of your source code. It can find class design problems, method design problems. It can check code layout and formatting issues[1].
+\subsection{Advantages}
+\begin{itemize}
+    \item portable between IDEs. If you decide to use IntelliJ later, or you have a team using a variety of IDEs, you still have a way to enforce consistency [3].
+    \item better external tooling. It's much easier to integrate checkstyle with your external tools since it was designed as a standalone framework. You can plug into your SCM as a pre-commit hook, or into your build tool, quite easily. Using Eclipse style convention you would need to write or locate a plugin to do the same thing [3].
+    \item ability to create your own rules. Eclipse defines a large set of styles, but checkstyle has more, and you can add your own custom rules [3].
+\end{itemize}
+\subsection{Limitations}
+There are basically only a few limits for Checkstyle:
+\begin{itemize}
+\item Java tokens (identifiers, keywords) should be written with ASCII characters ONLY, no Unicode escape support in keywords and no Unicode support in identifiers.[1]
+\item To get valid violations, code have to be compilable, in other case you can get not easy to understand parse errors.[1]
+\item You cannot determine the type of an expression. Example: "getValue() + getValue2()".[1]
+\item You cannot determine the full inheritance hierarchy of type.[1]
+\item You cannot see the content of other files. You have content of one file only during all Checks execution. All files are processed one by one. [1]
+\end{itemize}
+\begin{thebibliography}{9}
+\bibitem{checkstyle}
+Checkstyle,\\
+\url{https://checkstyle.sourceforge.io/index.html}
+
+\bibitem{debugging}
+Debugging,\\
+\url{https://www.eclipse.org/community/eclipse_newsletter/2017/june/article1.php}
+
+\bibitem{stackoverflow}
+Stackoverflow,\\
+\url{https://stackoverflow.com/questions/13644624/advantage-of-using-checkstyle-rather-than-using-eclipse-built-in-code-formatter}
+\end{thebibliography}
+\end{document}
+
