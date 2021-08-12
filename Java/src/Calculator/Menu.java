@@ -1,4 +1,4 @@
-package com.company;
+package Calculator;
 
 public class Menu {
     private static String printUnderLine(){

@@ -1,8 +1,10 @@
+package tests;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 
 import org.junit.Test;
-
+import TestSrc.Power;
 /**
  * SOEN 6011 - Function F7 x power y test cases This class is JUnit test class.
  * for Power.java

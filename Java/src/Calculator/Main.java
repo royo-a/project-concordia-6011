@@ -1,4 +1,4 @@
-package com.company;
+package Calculator;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -42,7 +42,7 @@ public class Main {
 
     public static void processXY(){
         Menu.promptXYInput();
-        Calculator.function7or8();
+        ScientificCalculator.function7or8();
     }
 
     public static void main(String[] args) {

@@ -1,3 +1,4 @@
+package TestSrc;
 import java.util.Scanner;
 
 /**
