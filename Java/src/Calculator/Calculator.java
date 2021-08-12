@@ -312,11 +312,15 @@ public class Calculator {
 	    return result * 2;
 	  }
     public static void function7or8() {
-		 double baseValue;
+		    double baseValue;
 		    double exponentValue;
+		    while(true) {
 		    Scanner sc = new Scanner(System.in);
 		    System.out.println("Enter the Base value:");
 		    String base = sc.nextLine();
+            if(base.toLowerCase().equals("z")){
+                break;
+            }
 		    System.out.println("Enter the Exponent value:");
 		    String exponent = sc.nextLine();
 		    try {
@@ -338,6 +342,7 @@ public class Calculator {
 		      }
 		    } catch (NumberFormatException e) {
 		      System.out.println("Exception : Entered input is not a double value ");
+		    }
 		    }
     }
 }
