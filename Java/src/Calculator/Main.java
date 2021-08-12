@@ -42,7 +42,7 @@ public class Main {
 
     public static void processXY(){
         Menu.promptXYInput();
-        ScientificCalculator.function7or8();
+        Calculator.function7or8();
     }
 
     public static void main(String[] args) {
