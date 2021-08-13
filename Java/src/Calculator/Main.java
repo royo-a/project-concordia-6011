@@ -27,12 +27,7 @@ public class Main {
     }
 
     public static void processABX(){
-        Menu.promptABXInput();
-        String a = Calculator.checkValid();
-        String b = Calculator.checkValid();
-        String c = Calculator.checkValid();
-
-        Calculator.function5or6(a, b, c);
+       Menu.promptABXInput();
     }
 
     public static void processSine(){
