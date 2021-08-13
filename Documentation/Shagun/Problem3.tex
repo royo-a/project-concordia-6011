@@ -1,0 +1,223 @@
+\documentclass[10pt]{article}
+\usepackage[tmargin=0.6in]{geometry} 
+\usepackage{algorithm}
+\usepackage[utf8]{inputenc}
+% \usepackage{arevmath}
+\usepackage[noend]{algpseudocode}
+
+
+\title{Problem 3: Pseudo-code and Algorithms}
+\author{Shagun Shagun, 40138455}
+\date{}
+
+\begin{document}
+\maketitle
+\section{Algorithm and Pseudocode }
+Following is algorithm and the pseudo-code for $ab^x$
+
+\begin{algorithm}
+\caption{Recursive Approach - $ab^x$ }
+\begin{algorithmic}
+\Procedure{$Function5$}{$a,b,x$}
+\State \textbf{in: } String a, b, x
+\State \textbf{out: } double result
+\State  result = 0
+\If{((a $||$ b) == "0")}
+    \Return result
+\Else \If{(b == "e")}
+ \State result = a * exponential(x)
+    \Else 
+    \State result = a * f5Power(b,x)
+    \EndIf
+\State 
+\Return result;
+\EndIf
+\EndProcedure
+\\
+\Procedure{$exponential$}{$n$}
+\State \textbf{in: } int n
+\State \textbf{out: } double result
+\State sum = 1
+\State m = 1
+\State for i $<=$ n 
+\State $sum = 1+m*sum/i$
+\State \Return sum
+\EndProcedure
+\\
+\Procedure{$f5Power$}{$x,n$}
+\State \textbf{in: } double x, int n
+\State \textbf{out: } double result
+\If{(($n < 0$)}
+\State \Return $1.0/powerHandler(x,n)$
+    \Else
+\State \Return $powerHandler(x,n)$
+\EndIf
+\EndProcedure
+\\
+\Procedure{$powerHandler$}{$x,n$}
+\State \textbf{in: } double x, double n
+\State \textbf{out: } double result
+\If{($n == 0$)}
+    \Return 1
+\EndIf
+\If{($n == 1$)}
+    \Return x
+\EndIf
+\If{($n mod 2$ == 0)}
+\State \Return $powerHandler(x*x,  n/2)$
+\Else
+\State \Return $x * powerHandler(x*x,  n/2)$
+\EndIf
+\EndProcedure
+\end{algorithmic}
+% \end{algorithm}
+
+\end{algorithm}
+
+% second logic
+\begin{algorithm}
+\caption{Iterative Approach -  $ab^x$ }
+\begin{algorithmic}
+\Procedure{$Function5$}{$a,b,x$}
+\State \textbf{in: } String a, b, x
+\State \textbf{out: } double result
+\State  result = 0
+\If{((a $||$ b) == "0")}
+    \Return result
+\Else 
+    \If{(b == "e")}
+    \State sum = 1
+    \State m = 1 and i = 1
+    \State for i $<=$ x 
+    \State $sum = 1+m*sum/i$
+    \State end
+\State \Return a*sum
+    \Else 
+        \If{($x == 0$)}
+            \Return 1
+        \EndIf
+        \If{($x == 1$)}
+            \Return a*x
+        \Else    
+        \State $i=1 and pow = 1$
+        \State for i $<=$ n 
+        \State $pow = pow*x$
+        \State end
+        \State \Return a*sum
+        \EndIf
+\EndIf
+\EndIf
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+% third logic
+\begin{algorithm}
+\caption{Divide and Conquer Approach -  $ab^x$}
+\begin{algorithmic}
+\Procedure{$Function5$}{$a,b,x$}
+\State \textbf{in: } String a, b, x
+\State \textbf{out: } double result
+\State  result = 0
+\If{((a $||$ b) == "0")}
+    \Return result
+\Else 
+    \If{(b == "e")}
+    \State sum = 1
+    \State m = 1 and i = 1
+    \State for i $<=$ x 
+    \State $sum = 1+m*sum/i$
+    \State end
+\State \Return a*sum
+    \Else 
+        \If{($x == 0$)}
+            \Return 1
+        \EndIf
+        \If{($x == 1$)}
+            \Return a*x
+        \Else    
+        \State \Return a*calculatorPower(b,x)
+        \EndIf
+\EndIf
+\EndIf
+\EndProcedure
+\\
+\Procedure{$calculatorPower$}{$b,x$}
+\State \textbf{in: } double b, int x
+\State \textbf{out: } double result
+\If{(x == 1)}
+\State \Return 1
+\ElsIf{(x mod 2 == 0)}
+\State \Return $calculatorPower(b, x/2)*calculatorPower(b, x/2)$
+\Else
+\State \Return $b * calculatorPower(b, x/2)*calculatorPower(b, x/2)$
+\EndIf
+
+\EndProcedure
+\end{algorithmic}
+\end{algorithm}
+
+
+\section{Algorithm Description}
+\subsection{Algorithm 1}
+The details of algorithm 1 is given following:
+\\\textbf{ Complexity = } $O(logn), \Omega(n)$
+\\\textbf{Space Complexity = } $O(1)$
+\\\textbf{Approach = } Recursion
+\\\textbf{Rationale = } The a and b are the constants, depending on the value of b the complexities is being calculated such that if b = any integer then f5Power() will be called. So, the time complexity will be $O(logn)$ and space complexity to 1. If b = e then taylor series will execute calling exponential() resulting $\Omega(n)$ time complexity and 1 space complexity.
+\\\textbf{Advantages}
+\begin{enumerate}
+    \item $O (log n)$ is the time complexity of the recursive algorithm. This recursive technique has tail recursive to avoid stack overflow issues and handle large inputs more efficiently.
+    \item Algorithm 1 has more readability and maintainable code.
+\end{enumerate}
+
+\subsection{Algorithm 2}
+The details of algorithm 2 is given following:
+\\\textbf{ Complexity = } $O(n), \Omega(n)$
+\\\textbf{Space Complexity = } $O(1)$
+\\\textbf{Approach = } Iterative
+\\\textbf{Rationale = } The a and b are the constants, depending on the value of b the complexities is being calculated such that if b = any integer then f5Power() will be called. So, the time complexity will be $O(n)$ and space complexity to 1. If b = e then taylor series will execute calling exponential() resulting $\Omega(n)$ time complexity and 1 space complexity.
+\\\textbf{Advantages}
+\begin{enumerate}
+    \item Because all operations are performed on the heap, iterative algorithms do not incur from stack overflow.
+    \item Space complexity is O(1).
+\end{enumerate}
+\textbf{Disadvantages}
+\begin{enumerate}
+    \item The complexity is $O(n)$.
+    \item The algorithm is not efficient.
+    \item The algorithm has poor readability and maintainability.
+\end{enumerate}
+
+\subsection{Algorithm 3}
+The details of algorithm 1 is given following:
+\\\textbf{ Complexity = } $O(n), \Omega(n)$
+\\\textbf{Space Complexity = } $O(1)$
+\\\textbf{Approach = } Divide and Conquer
+\\\textbf{Rationale = } The a and b are the constants, depending on the value of b the complexities is being calculated such that if b = any integer then f5Power() will be called. So, the time complexity will be $O(n)$ and space complexity to 1. If b = e then taylor series will execute calling exponential() resulting $\Omega(n)$ time complexity and 1 space complexity.
+\\\textbf{Advantages}
+\begin{enumerate}
+    \item The problem has been solved in divide and conquer approach may result in robustness.
+    \item Space complexity is O(1).
+\end{enumerate}
+\textbf{Disadvantages}
+\begin{enumerate}
+    \item The complexity is $O(n)$.
+    \item The constant allocation of memory space, which leads to a stack overflow, has a substantial impact on efficiency. 
+\end{enumerate}
+
+\section{Conclusion}
+By computing power(b, x/2) only once and storing it, the algorithm 2 and algorithm 3 can be optimized to $O(logn)$. The approach used in algorithm stores power only at once.
+Algorithm Implementation = Algorithm 1
+
+\begin{thebibliography}{}
+\bibitem{wikipedia_s}
+Wikiedia: Exponent Function,
+\\\texttt{https://en.wikipedia.org/wiki/Exponential\_function}
+\bibitem{wikipedia_l}
+Geeksforgeeks: Power Function,
+\\\texttt{https://www.geeksforgeeks.org/write-a-c-program-to-calculate-powxn/}
+\end{thebibliography}
+
+\end{document}
+

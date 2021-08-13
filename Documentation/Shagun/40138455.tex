@@ -1,0 +1,564 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[tmargin=0.6in]{geometry} 
+\usepackage{algorithm}
+\usepackage[utf8]{inputenc}
+% \usepackage{arevmath}
+\usepackage[noend]{algpseudocode}
+
+\title{Scientific Calculator\\
+\large Course - SOEN 6011, Professor - Pankaj Kamthan}
+\author{Shagun Shagun, ID - 40138455}
+\date{}
+\begin{document}
+
+\maketitle %To display the title in the document.
+
+\section{\large Problem 1}
+
+\subsection{Description}
+A power function is of the form:
+\begin{equation} \label{Power_func}
+	f(x) = ab^x
+\end{equation}
+where x is a real number, a and b are constants.
+
+
+\subsection{Domain}
+The domain is set of all real numbers,  (- $\infty$,$\infty$)
+
+\subsection{Co-domain}
+The co-domain is also set of all real numbers.
+
+
+\subsection{Characteristics of Power Function.}
+\begin{enumerate}
+\item For any exponential function, the domain is the set of all real number, however range is bounded by the horizontal symptote of the graph of f(x).
+
+\item The behaviour of power function effects the exponential growth and decay.
+\item When b greater than 1, the graph accelerates towards y-axis contributing to exponential growth.
+\item When b greater than 1 and less than 0, the graph decreases towards y-axis contributing to exponential decay.
+\item When modeling real-world situations with an exponential function, the domain and range can be limited to numbers that make sense in the context. The domain and range can be stated using the inequalities for a continuous interval in these cases.
+
+\end{enumerate}
+
+\section{Problem 2}
+    \subsection{Assumptions}
+    % \section {Assumptions}
+        \begin{itemize}
+            \item In function $f(x) = ab^x$, the output will always be in decimals.
+            \item The output of the function will be greater than zero, if a and b constants are not equal to zero.
+            \item The range for the values of x can be from -100000 $\leq$ x $\leq$ +100000.
+            \item x can be negative but not in decimal.
+            \item The value for a and b ranging from  -100000 $\leq$ a $\leq$ 100000 and -100000 $\leq$ b $\leq$ 100000.
+            \item a and b are constants, the calculator accepts the magical constants such as e.
+        \end{itemize}
+    \subsection {Requirements}
+        \begin{enumerate}
+        \item\textbf{First Requirement}
+        \begin{itemize}
+            \item \textbf{ID = } FR1
+            \item \textbf{Type = } Functional Requirements
+            \item \textbf{Version = } 1.0
+            \item \textbf{Difficulty = } Easy
+            \item \textbf{Priority = } 1
+            \item \textbf{Description = }	System shall take an input x as a  real number.
+            \item \textbf{Rationale = }	The rationale behind this requirement is to calculate the function only for real numbers.
+        \end{itemize}
+        \item\textbf{Second Requirements}
+        \begin{itemize}
+            \item \textbf{ID = } FR2
+            \item \textbf{Type = } Functional Requirements
+            \item \textbf{Version = } 1.0
+            \item \textbf{Difficulty = } Easy
+            \item \textbf{Priority = } 1
+            \item \textbf{Description = } System should validate the input.
+            \item \textbf{Rationale = }	The rationale behind this requirement is to check domain value for function.
+        \end{itemize}
+        \item\textbf{Third Requirement}
+        \begin{itemize}
+            \item \textbf{ID = } FR3
+            \item \textbf{Type = } Functional Requirements
+            \item \textbf{Version = } 1.0
+            \item \textbf{Difficulty = } Easy
+            \item \textbf{Priority = } 3
+            \item \textbf{Description = }  System shall output the value within the expected range. 
+            \item \textbf{Rationale = }	The rationale behind this requirement is to get result in the range of the function.
+        \end{itemize}
+        \item\textbf{Fourth  Requirement}
+        \begin{itemize}
+            \item \textbf{ID = } FR4
+            \item \textbf{Type = } Functional Requirements
+            \item \textbf{Version = } 1.0
+            \item \textbf{Difficulty = } Easy
+            \item \textbf{Priority = } 2
+            \item \textbf{Description = } System shall give a input the value of x  within given range.
+            \item \textbf{Rationale = }	The rationale behind this requirement is to get rational output of a function each time.
+        \end{itemize}
+         \item\textbf{Fifth  Requirement}
+        	 \begin{itemize}
+            \item \textbf{ID = } FR5
+            \item \textbf{Type = } Functional Requirements
+            \item \textbf{Version = } 1.0
+            \item \textbf{Difficulty = } Easy
+            \item \textbf{Priority = } 1
+            \item \textbf{Description = } System shall show relevant error messages if any.
+            \item \textbf{Rationale = }	The rationale behind this requirement is to handle error handling.
+            \end{itemize}
+            
+        \item\textbf{Sixth  Requirement}
+        	 \begin{itemize}
+            \item \textbf{ID = } FR6
+            \item \textbf{Type = } Functional Requirements
+            \item \textbf{Version = } 1.0
+            \item \textbf{Difficulty = } Medium
+            \item \textbf{Priority = } 1
+            \item \textbf{Description = } System shall accepts magical constant e as constant.
+            \item \textbf{Rationale = }	The rationale behind this requirement is the acceptability of the constants.
+            \end{itemize}
+        \item\textbf{Seventh  Requirement}
+        	 \begin{itemize}
+            \item \textbf{ID = } FR7
+            \item \textbf{Type = } Non-Functional Requirements
+            \item \textbf{Version = } 1.0
+            \item \textbf{Difficulty = } Easy
+            \item \textbf{Priority = } 1
+            \item \textbf{Description = } System shall show relevant success messages or confirmation results.
+            \item \textbf{Rationale = }	The rationale behind this requirement is to show relevant messages and contributes to usability.
+            \end{itemize}
+            
+        \item\textbf{Eighth  Requirement}
+        	 \begin{itemize}
+            \item \textbf{ID = } FR8
+            \item \textbf{Type = } Non-Functional Requirements
+            \item \textbf{Version = } 1.0
+            \item \textbf{Difficulty = } Easy
+            \item \textbf{Priority = } 2
+            \item \textbf{Description = } System shall complete the calculation on expected time.
+            \item \textbf{Rationale = }	The rationale behind this requirement is to have good performance of the calculator.
+            \end{itemize}
+        \end{enumerate}
+        
+\section{Problem 3}
+    \subsection{Algorithm and Pseudocode }
+    Following is algorithm and the pseudo-code for $ab^x$
+    
+    \begin{algorithm}
+    \caption{Recursive Approach - $ab^x$ }
+    \begin{algorithmic}
+    \Procedure{$Function5$}{$a,b,x$}
+    \State \textbf{in: } String a, b, x
+    \State \textbf{out: } double result
+    \State  result = 0
+    \If{((a $||$ b) == "0")}
+        \Return result
+    \Else \If{(b == "e")}
+     \State result = a * exponential(x)
+        \Else 
+        \State result = a * f5Power(b,x)
+        \EndIf
+    \State 
+    \Return result;
+    \EndIf
+    \EndProcedure
+    \\
+    \Procedure{$exponential$}{$n$}
+    \State \textbf{in: } int n
+    \State \textbf{out: } double result
+    \State sum = 1
+    \State m = 1
+    \State for i $<=$ n 
+    \State $sum = 1+m*sum/i$
+    \State \Return sum
+    \EndProcedure
+    \\
+    \Procedure{$f5Power$}{$x,n$}
+    \State \textbf{in: } double x, int n
+    \State \textbf{out: } double result
+    \If{(($n < 0$)}
+    \State \Return $1.0/powerHandler(x,n)$
+        \Else
+    \State \Return $powerHandler(x,n)$
+    \EndIf
+    \EndProcedure
+    \\
+    \Procedure{$powerHandler$}{$x,n$}
+    \State \textbf{in: } double x, double n
+    \State \textbf{out: } double result
+    \If{($n == 0$)}
+        \Return 1
+    \EndIf
+    \If{($n == 1$)}
+        \Return x
+    \EndIf
+    \If{($n mod 2$ == 0)}
+    \State \Return $powerHandler(x*x,  n/2)$
+    \Else
+    \State \Return $x * powerHandler(x*x,  n/2)$
+    \EndIf
+    \EndProcedure
+    \end{algorithmic}
+    % \end{algorithm}
+    
+    \end{algorithm}
+    
+    % second logic
+    \begin{algorithm}
+    \caption{Iterative Approach -  $ab^x$ }
+    \begin{algorithmic}
+    \Procedure{$Function5$}{$a,b,x$}
+    \State \textbf{in: } String a, b, x
+    \State \textbf{out: } double result
+    \State  result = 0
+    \If{((a $||$ b) == "0")}
+        \Return result
+    \Else 
+        \If{(b == "e")}
+        \State sum = 1
+        \State m = 1 and i = 1
+        \State for i $<=$ x 
+        \State $sum = 1+m*sum/i$
+        \State end
+    \State \Return a*sum
+        \Else 
+            \If{($x == 0$)}
+                \Return 1
+            \EndIf
+            \If{($x == 1$)}
+                \Return a*x
+            \Else    
+            \State $i=1 and pow = 1$
+            \State for i $<=$ n 
+            \State $pow = pow*x$
+            \State end
+            \State \Return a*sum
+            \EndIf
+    \EndIf
+    \EndIf
+    \EndProcedure
+    \end{algorithmic}
+    \end{algorithm}
+    
+    % third logic
+    \begin{algorithm}
+    \caption{Divide and Conquer Approach -  $ab^x$}
+    \begin{algorithmic}
+    \Procedure{$Function5$}{$a,b,x$}
+    \State \textbf{in: } String a, b, x
+    \State \textbf{out: } double result
+    \State  result = 0
+    \If{((a $||$ b) == "0")}
+        \Return result
+    \Else 
+        \If{(b == "e")}
+        \State sum = 1
+        \State m = 1 and i = 1
+        \State for i $<=$ x 
+        \State $sum = 1+m*sum/i$
+        \State end
+    \State \Return a*sum
+        \Else 
+            \If{($x == 0$)}
+                \Return 1
+            \EndIf
+            \If{($x == 1$)}
+                \Return a*x
+            \Else    
+            \State \Return a*calculatorPower(b,x)
+            \EndIf
+    \EndIf
+    \EndIf
+    \EndProcedure
+    \\
+    \Procedure{$calculatorPower$}{$b,x$}
+    \State \textbf{in: } double b, int x
+    \State \textbf{out: } double result
+    \If{(x == 1)}
+    \State \Return 1
+    \ElsIf{(x mod 2 == 0)}
+    \State \Return $calculatorPower(b, x/2)*calculatorPower(b, x/2)$
+    \Else
+    \State \Return $b * calculatorPower(b, x/2)*calculatorPower(b, x/2)$
+    \EndIf
+    
+    \EndProcedure
+    \end{algorithmic}
+    \end{algorithm}
+    
+
+    \subsection{Algorithm Description}
+        \subsubsection{Algorithm 1}
+    The details of algorithm 1 is given following:
+    \\\textbf{ Complexity = } $O(logn), \Omega(n)$
+    \\\textbf{Space Complexity = } $O(1)$
+    \\\textbf{Approach = } Recursion
+    \\\textbf{Rationale = } The a and b are the constants, depending on the value of b the complexities is being calculated such that if b = any integer then f5Power() will be called. So, the time complexity will be $O(logn)$ and space complexity to 1. If b = e then taylor series will execute calling exponential() resulting $\Omega(n)$ time complexity and 1 space complexity.
+    \\\textbf{Advantages}
+    \begin{enumerate}
+        \item $O (log n)$ is the time complexity of the recursive algorithm. This recursive technique has tail recursive to avoid stack overflow issues and handle large inputs more efficiently.
+        \item Algorithm 1 has more readability and maintainable code.
+    \end{enumerate}
+    
+        \subsubsection{Algorithm 2}
+    The details of algorithm 2 is given following:
+    \\\textbf{ Complexity = } $O(n), \Omega(n)$
+    \\\textbf{Space Complexity = } $O(1)$
+    \\\textbf{Approach = } Iterative
+    \\\textbf{Rationale = } The a and b are the constants, depending on the value of b the complexities is being calculated such that if b = any integer then f5Power() will be called. So, the time complexity will be $O(n)$ and space complexity to 1. If b = e then taylor series will execute calling exponential() resulting $\Omega(n)$ time complexity and 1 space complexity.
+    \\\textbf{Advantages}
+    \begin{enumerate}
+        \item Because all operations are performed on the heap, iterative algorithms do not incur from stack overflow.
+        \item Space complexity is O(1).
+    \end{enumerate}
+    \textbf{Disadvantages}
+    \begin{enumerate}
+        \item The complexity is $O(n)$.
+        \item The algorithm is not efficient.
+        \item The algorithm has poor readability and maintainability.
+    \end{enumerate}
+    
+        \subsubsection{Algorithm 3}
+    The details of algorithm 1 is given following:
+    \\\textbf{ Complexity = } $O(n), \Omega(n)$
+    \\\textbf{Space Complexity = } $O(1)$
+    \\\textbf{Approach = } Divide and Conquer
+    \\\textbf{Rationale = } The a and b are the constants, depending on the value of b the complexities is being calculated such that if b = any integer then f5Power() will be called. So, the time complexity will be $O(n)$ and space complexity to 1. If b = e then taylor series will execute calling exponential() resulting $\Omega(n)$ time complexity and 1 space complexity.
+    \\\textbf{Advantages}
+    \begin{enumerate}
+        \item The problem has been solved in divide and conquer approach may result in robustness.
+        \item Space complexity is O(1).
+    \end{enumerate}
+    \textbf{Disadvantages}
+    \begin{enumerate}
+        \item The complexity is $O(n)$.
+        \item The constant allocation of memory space, which leads to a stack overflow, has a substantial impact on efficiency. 
+    \end{enumerate}
+    
+    \subsection{Conclusion}
+    By computing power(b, x/2) only once and storing it, the algorithm 2 and algorithm 3 can be optimized to $O(logn)$. The approach used in algorithm stores power only at once.
+    Algorithm Implementation = Algorithm 1
+
+\section{Problem 4}
+    \subsection{Eclipse Debugger}
+    Debugging is the process of finding and fixing faults, flaws, and anomalies in software. It's an essential ability for any Java developer because it aids in the detection of minor bugs that aren't obvious during code reviews or only occur when a specific condition is met.
+    \\ \\ \textbf{Debugger Used :} Inbuilt debugger offered by Eclipse Java Development Tools (JDT). 
+    \\ \\Following are the advantages and disadvantages of using debugger in the program.
+    \subsubsection*{Advantages}
+    \begin{itemize}
+        \item Debugger promptly reports an erroneous state. This allows for earlier fault detection and makes the software development process stress-free and trouble-free.
+        \item Debugging aids the developer in eliminating redundant and unwanted data.
+        \item Debugging allows developers to avoid writing complex one-time testing code, which reduces resources and time during software development.
+    \end{itemize}
+    
+    \subsubsection*{Disadvantages}
+    \begin{itemize}
+        \item When the execution is halted inside an invariant, the debugger isn't particularly useful.
+        \item If you use any of the previously unsupported expressions in a breakpoint condition, the condition will always return True since the evaluation is failing. In this instance, the debugger will come to a halt.
+    \end{itemize}
+
+\subsection{Achieved Quality Attributes}
+
+    \subsubsection{Maintainability}
+        \begin{itemize}
+            \item Common practices has been adapted within a group to avoid ambiguities.
+            \item Useful comments added in the code where it is required.
+            \item Avoided global scoping for common variables and functions.
+            \item Refactored code once every member merged their code to the github branch.
+        \end{itemize}
+    
+   
+    \subsubsection{Robustness}
+        \begin{itemize}
+            \item Usage of exception for exceptional test cases.
+            \item Narrowed the variable scope as far as possible in the code.
+            \item Error handling done on the code.
+            \item Usage of mutable variable over creating new variables.
+        \end{itemize}
+  
+    
+    \subsubsection{Usable}
+        \begin{itemize}
+            \item Simple console interface provided for user input.
+            \item Error messages are given in wrong input.
+            \item Success messages are given for results.
+            \item Suggestions are given when user encountered any difficulties while using calculator.
+        \end{itemize}
+        
+    \subsubsection{Correctness}
+        \begin{itemize}
+            \item Coding standards is followed.
+            \item Proper testing practices has been done on the function assigned. 
+            \item JUnit Testing has implemented to check the correctness. 
+        \end{itemize}
+    
+   
+    \subsubsection{Efficiency}
+    \begin{itemize}
+        \item The main focus on readability is given to the code.4
+        \item The program takes not less than two or three nanoseconds.
+    \end{itemize}
+    
+    \subsection{Quality Check of Source Code}
+    It's a programming tool that helps programmers write Java code that follows a set of rules. It automates the process of inspecting Java code, saving humans the time and effort of doing so. It's ideal for projects that want to enforce a coding standard.
+    \subsubsection*{Advantages}
+    \begin{itemize}
+        \item The checkstyle is portable between different IDEs.
+        \item Easily integrate as a pre-commit hook or into your build tool into your Software Configuration Management.
+        \item Checkstyle is a stand-alone framework, integrating it with your other tools is considerably easier.
+    \end{itemize}
+    \subsubsection*{Disadvantages}
+    \begin{itemize}
+        \item Checkstyle is a static analysis tool for a single file.
+    \end{itemize}
+    
+\section{Problem 5}
+    \subsection{Standard Guidelines}
+   The source code review is based on the standard practices that a developer has used while writing the code. The coverage of all standard guidelines on which the report has generated is listed below.
+   \begin{enumerate}
+        \item The code should eliminate nested if statement.
+       \item The code should follow a coding style guide.
+       \item The code should have meaningful method and variable names.
+       \item The author should annotate the comments not exceeding 10 to 20 lines.
+       \item The class program should not import unnecessary packages.
+       \item The code should have low coupling and high cohesion.
+       \item The code should avoid the global scoping for common variables and functions.
+       \item The code should avoid memory leakage.
+       \item The code should narrow the variable scope as far as possible in the code.
+       \item Usage of mutable variable over creating new variables in object oriented language.
+   \end{enumerate}
+   
+    \subsection{Review Approach}
+    Used Approach - Lightweight Code Review
+    \begin{itemize}
+        \item Walk-through the code.
+        \item Executed the code in run time environment and also used debugger.
+        \item Inspection on comment length, Checking dependencies among the components, Check on unused variables.
+        \item Observing global scoping of the functions and variables.
+    \end{itemize}
+    
+    \subsection{Results}
+    \begin{center}
+    \begin{tabular}{||c c c||} 
+     \hline
+     No. & Description & Result \\ 
+     \hline\hline
+     1 & Use of annotation in the code  & PASS \\ 
+     \hline
+     2 & No usage of nested ifs statement & PASS \\
+     \hline
+     3 & No unused variable found & PASS \\
+     \hline
+     4 & No memory leakage & PASS \\
+     \hline
+     
+     \hline
+     5 & Usage of meaningful method and variable names & PASS \\
+     \hline
+     
+     \hline
+     6 & Not exceeding source line of  code & PASS \\
+     \hline
+     7 & No deadlock encountered & PASS \\
+     \hline
+     8 & No dependency found in the code & PASS \\
+     \hline
+     9 & No Error found in the code & PASS \\
+     \hline
+     9 & No Warning found in the code & PASS \\
+     \hline
+     10 & No unnecessary package is included in the code  & PASS \\
+     \hline
+    \end{tabular}
+    \end{center}
+    
+    \subsection{Conclusion}
+    Overall, the code is well-structured and well-written. It is clear from the code that readability is a developer's primary focus. The only suggestion I have is to retain logs because they can help with debugging.
+    
+\section{Problem 6}
+    \subsection{Standard Guidelines}
+    The following are the guidelines implemented in the unit testing for function 5 :
+    \begin{equation} \label{Power_func}
+	f(x) = ab^x
+    \end{equation}
+
+    \begin{itemize}
+    \item Each test case should given a test case id.
+    \item Each test should contains the unit test of each function involved in the implementation of function 5.
+    \item Each test case is followed by one line statement justifying it's description.
+    \item Each test case contains the function name used in the unit test case.
+    \item Test case shall cover all the cases expected.
+    \item Test Case should mention a expected value and actual value.
+    \item Atleast one test case should be consider into a delta precision values.
+    \item Each test case should show message or log for the sake of readability.
+    \item Each test case should be traceable.
+    \item Test case should map to the functional requirement.
+\end{itemize}
+
+    \subsection{Implemented Unit Test}
+\begin{itemize}
+    \item  Unit Testing Framework Used: JUnit
+    \item The sample practice used in the test cases are as follows:\\
+    \\ID = TC1
+ \\Test  Case =  description about the test case.
+ \\Function Used = name of the function used in the test case.
+ \\Functional Requirement ID Used = FRn
+\end{itemize}
+
+\section{Problem 7}
+    \subsection{Testing Function2 - tanx}
+       The test review is based on the test cases developer has mentioned and also the check on the  mapping of each test case with requirements mentioned. The coverage of all test cases are included.
+    \subsection{Testing Criteria}
+        The developer has mentioned a set of test cases in which all the functions and implementation has been covered. The following are the points based on which this test cases are evaluated
+        \begin{enumerate}
+            \item Code Execution.
+            \item Test Case returning positive responses.
+            \item Test Cases mapped to functional requirements.
+            \item Coverage of all test cases.
+            \item Working of each unit in the program.
+            \item Covering input validation.
+        \end{enumerate}
+        
+    \subsection{Results}
+        \begin{center}
+        \begin{tabular}{||c c c||} 
+         \hline
+         No. & Description & Result \\ 
+         \hline\hline
+         1 & Test Cases covers of all possible cases & PASS \\ 
+         \hline
+         2 & Test Cases covers the exception handling & PASS \\
+         \hline
+         3 & Requirement mentioned in the problem2 has covered & PASS \\
+         \hline
+         4 & Working of calculating sin() function & PASS \\
+         \hline
+         
+         \hline
+         5 & Working of calculating cos() function & PASS \\
+         \hline
+         
+         \hline
+         6 & Working of calculating tan() function & PASS \\
+         \hline
+         7 & Test on checking input within range & PASS \\
+         \hline
+         8 & Test cases follows assumptions & Not Applicable \\
+         \hline
+        \end{tabular}
+        \end{center}
+        
+    \subsection{Conclusion}
+        Almost all the methods of function2 have been tested and confirmed to be effective and corrective. During the testing process, no major  mistakes were discovered. All of the requirements given in Problem 2 has been covered in the mentioned test cases. Furthermore, all the test cases are to the point and covered all possibilities.
+        
+    \subsection{Suggestions}
+        Assigning each test case a unique id would make contribution to readability.
+        
+        
+\begin{thebibliography}{}
+    \bibitem{wikipedia_s}
+    Wikiedia: Exponent Function,
+    \\\texttt{https://en.wikipedia.org/wiki/Exponential\_function}
+    \bibitem{wikipedia_l}
+    Geeksforgeeks: Power Function,
+    \\\texttt{https://www.geeksforgeeks.org/write-a-c-program-to-calculate-powxn/}
+    \end{thebibliography}
+\end{document}
