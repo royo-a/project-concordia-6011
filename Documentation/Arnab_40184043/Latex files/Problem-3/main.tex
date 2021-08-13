@@ -1,0 +1,162 @@
+% We need to specify the document type and the encoding first
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+
+% defining margin for the document
+\usepackage[margin=1in]{geometry}
+
+% use these packages for tables
+\usepackage{booktabs}
+\usepackage{tabu}
+\usepackage{multirow}
+
+% use for making captions beautiful
+\usepackage[labelfont=bf, skip=5pt, font=small]{caption}
+
+% these packages are used for images
+\usepackage{graphicx}
+
+% package for color
+\usepackage{xcolor}
+
+% position images precisely at location in text
+\usepackage{float}
+
+% for algorithms
+\usepackage{algorithm} 
+\usepackage{algpseudocode} 
+
+
+
+% ----------------------Rules to follow document wide------------------------------
+% keep 1em space between blank lines
+\setlength{\parskip}{1em}
+% don't indent new paragraphs
+\setlength{\parindent}{0em}
+
+\title{Answer to Problem 3}
+\author{Arnab Roy}
+
+
+\begin{document}
+
+\maketitle
+
+\section{Algorithms}
+\subsection{Pseudocode}
+\subsubsection{The algorithm for sin(x)/cos(x)}
+\begin{algorithm}[H]
+	\caption{tangent(angle) using sin(angle)/cos(angle)} 
+	\begin{algorithmic}[1]
+		\State result = calculateSin(angle)/calculateCos(angle)
+		\If {result is equal to $\infty$}
+		\State throw error
+		\EndIf
+		\State Round result to 7 digits
+        \State \textbf{return} result
+	\end{algorithmic} 
+\end{algorithm}
+
+\begin{algorithm}[H]
+	\caption{calculateSin(angle)} 
+	\begin{algorithmic}[1]
+		\State convert angle to 360 degrees
+		\If{angle is less than 0}
+		    \State store the sign of angle
+		    \State angle = absolute value of angle
+		\EndIf
+		\State determine the quadrant of the angle
+		\State signInQuadrant = calculate the sign of the angle in determined quadrant
+		\State shouldSubtract = true
+		\State angleInRadian = angle * 3.141592654 / 180
+		\State squareOfRadianAngle = angleInRadian * angleInRadian
+		\State numerator = angleInRadian * angleInRadian * angleInRadian
+		\State digitToFactorial = 3
+		\State result = angleInRadian
+        \For{$i=1\ldots9$}
+         \State nTerm = numerator / factorials[digitToFactorial]
+         \If{shouldSubtract}
+            \State nTerm *= -1
+            \State shouldSubtract = false
+            \State \textbf{else}
+            \State shouldSubtract = true
+        \EndIf
+        \State result += nTerm
+        \State numerator = numerator * squareOfRadianAngle
+        digitToFactorial += 2
+        \EndFor
+        \State result = roundTo7Digits(result)
+        \State \textbf{return} result == 0 ? 0 : result * sign * signInQuadrant
+	\end{algorithmic} 
+\end{algorithm}
+
+\begin{algorithm}[H]
+	\caption{calculateCos(angle)} 
+	\begin{algorithmic}[1]
+        \State convert angle to 360 degrees
+        \If{angle is less than 0}
+            \State angle = absolute value of angle
+        \EndIf
+        \State determine the quadrant of the angle
+		\State signInQuadrant = calculate the sign of the angle in determined quadrant
+        \State shouldSubtract = true
+        \State angleInRadian = angle * 3.141592654 / 180
+        \State squareOfRadianAngle = angleInRadian * angleInRadian
+        \State numerator = squareOfRadianAngle
+        \State digitToFactorial = 2
+        \State result = 1
+        \For{$i=1\ldots9$}
+            \State nTerm = numerator / factorials[digitToFactorial]
+            \If{shouldSubtract}
+                \State nTerm *= -1
+                \State shouldSubtract = false
+            \State \Else
+                \State shouldSubtract = true
+            \EndIf
+            \State result += nTerm
+            \State numerator = numerator * squareOfRadianAngle
+            \State digitToFactorial += 2
+        \EndFor
+
+        \State result = roundTo7Digits(result)
+        \State \textbf{return} result == 0 ? 0 : result * signInQuadrant
+	\end{algorithmic} 
+\end{algorithm}
+
+\subsubsection{The algorithm for the Taylor series of tangent function}
+\begin{algorithm}[H]
+	\caption{tangent(angle) using Taylor series} 
+	\begin{algorithmic}[1]
+        \State nominator[13] = [1, 1, 2, 17, 62, 1382, 21844, 929569, 6404582, 443861162, 18888466084, 113927491862, 58870668456604]
+        \State denominator[13] = [1, 3, 15, 315, 2835, 155925, 6081075, 638512875, 10854718875, 1856156927625, 194896477400625, 49308808782358125, 3698160658676859375]
+    \State result = 0
+    \State squareOfAngle = angle * angle
+
+    \For{$test=0\ldots12$}
+        \State result += angle * nominator[test] / denominator[test]
+        \State angle *= squareOfAngle
+    \EndFor
+    \State \textbf{return} result
+	\end{algorithmic} 
+\end{algorithm}
+\subsection{Description of the implemented algorithm}
+We have implemented the tangent function using the sin/cos formula. For this, we need the Taylor series for sine and cosine. At first, the angle in degrees provided by the user is converted within 90 degrees and the quadrant is determined. The it is converted to radians. The algorithm considers upto 9 terms and achieves an accuracy upto 6 decimal digits.
+\subsubsection{Time complexity}
+O(N)
+\subsubsection{Space complexity}
+O(T), where T is the number of factorials generated.
+\subsection{The advantages and disadvantages}
+We have implemented the tangent(angle) using the sin(angle)/cos(angle) algorithm. It has several advantages of the Taylor series of the tangent function. To understand this, we will first discuss about the disadvantage of the Taylor series of tangent.
+\subsubsection{Disadvantage of Taylor series of tangent}
+\begin{itemize}
+    \item The algorithm is not accurate for smaller terms. A large number of terms (approximately 30) needs to be taken to get an accurate result.
+    \item The denominator of the 13th term of the series is 3698160658676859375. It is evident that the denominators of the larger terms will exceed the capacity of the primitive data types in Java.
+    \item Keeping the Taylor series small results in output whose fractional parts are largely deviated from the accurate result.
+\end{itemize}
+\subsubsection{Advantage of sin(x)/cos(x)}
+\begin{itemize}
+    \item Needs only 9 terms for the Taylor series of sine and cosine to make the output accurate upto 6 fractional parts
+    \item Smaller number of terms mean faster execution
+\end{itemize}
+
+\end{document}
