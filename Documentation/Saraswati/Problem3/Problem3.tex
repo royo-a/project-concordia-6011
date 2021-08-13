@@ -1,0 +1,154 @@
+\documentclass[12pt]{article}
+\usepackage[tmargin=0.6in]{geometry}
+\usepackage{algorithm}
+\usepackage[utf8]{inputenc}
+% \usepackage{arevmath}
+\usepackage[noend]{algpseudocode}
+
+\title{Problem 3: Algorithm and Pseudocode}
+\author{Saraswati Saud \\
+Student ID: 40115097}
+\date{}
+
+\begin{document}
+\maketitle
+\section{Introduction}
+    Following are the algorithms and the pseudo-codes of function F4, $\Gamma(x)$:
+    \begin{algorithm}
+    \caption{Recursive Approach - $\Gamma(x)$ }
+    \begin{algorithmic}
+    \Procedure{$functionF4$}{$x$}
+        \State \textbf{in: } double x
+        \State \textbf{out: } double result
+        \If{(x $<$ 0)}
+            \Return "Wrong Input"
+        \Else \If{(x == x.5)}
+         \State result = halfFactInteger(x)
+            \Else
+            \State result = factInteger(x)
+            \EndIf
+        \State
+        \Return result
+        \EndIf
+    \EndProcedure
+    \\
+    \Procedure{$halfFactInteger$}{$x$}
+    \State \textbf{in: } double x
+    \State \textbf{out: } double result
+    \If{(($x == 0.5$)}
+    \State \Return 1.77
+        \Else
+    \State \Return $(x-1) * halfFactInteger(x-1)$
+    \EndIf
+    \EndProcedure
+    \\
+    \Procedure{$factInteger$}{$x$}
+    \State \textbf{in: } double x
+    \State \textbf{out: } double result
+    \If{(($x == 1$)}
+    \State \Return 1
+        \Else
+    \State \Return $(x-1) * factInteger(x-1)$
+    \EndIf
+    \EndProcedure
+    \\
+    \end{algorithmic}
+    \end{algorithm}
+
+    \newpage
+    % second logic
+    \begin{algorithm}
+    \caption{Iterative Approach - $\Gamma(x)$ }
+    \begin{algorithmic}
+    \Procedure{$functionF4$}{$x$}
+        \State \textbf{in: } double x
+        \State \textbf{out: } double result
+        \If{(x $<$ 0)}
+            \Return "Wrong Input"
+        \Else \If{(x == x.5)}
+         \State result = halfFactInteger(x)
+            \Else
+            \State result = factInteger(x)
+            \EndIf
+        \State
+        \Return result
+        \EndIf
+    \EndProcedure
+    \\
+    \Procedure{$halfFactInteger$}{$x$}
+    \State \textbf{in: } double x
+    \State \textbf{out: } double result
+    \\
+    \State double fact = 1.77
+    \State double result = 1.0
+    \\
+    \For{\texttt{(int i = 1; i < x; i++)}}
+        \State double value = x - i
+        \State result *= value
+    \EndFor
+    \Return fact * result
+    \EndProcedure
+    \\
+    \Procedure{$factInteger$}{$x$}
+    \State \textbf{in: } double x
+    \State \textbf{out: } double result
+    \\
+    \State double fact = 1.0
+    \\
+    \For{\texttt{(int i = 1; i < x; i++)}}
+        \State fact = fact * i
+    \EndFor
+    \Return fact
+    \EndProcedure
+    \\
+    \end{algorithmic}
+    \end{algorithm}
+
+    \section{Algorithm Description}
+    \subsection{Algorithm 1}
+    Following are the details of algorithm 1: \\
+    \textbf{Time Complexity:} O(n) \\
+    \textbf{Space Complexity:} O(n) \\
+    \textbf{Approach:} Recursion \\ \\
+    \textbf{Advantages}
+    \begin{itemize}
+        \item Reduces time complexity.
+        \item Adds clarity and reduces the time needed to write and debug code.
+        \item Reduces unnecessary calling of function and length of a code.
+    \end{itemize}
+    \textbf{Disadvantages}
+    \begin{itemize}
+        \item Recursion is usually slower due to the overhead of maintaining the stack.
+        \item It usually uses more memory for the stack.
+        \item Recursive methods will often throw a StackOverflowException when processing big sets.
+    \end{itemize}
+
+    \subsection{Algorithm 2}
+    Following are the details of algorithm 2: \\
+    \textbf{Time Complexity:} O(n) \\
+    \textbf{Space Complexity:} O(1) \\
+    \textbf{Approach:} Iterative \\ \\
+    \textbf{Advantages}
+    \begin{itemize}
+        \item Algorithm 2 does not suffer from stack overflow because all operations are conducted on the heap.
+        \item The space complexity of Algorithm 2 is O(1).
+    \end{itemize}
+    \textbf{Disadvantages}
+    \begin{itemize}
+        \item An infinite loop for iteration occurs when the condition never fails.
+        \item Not efficient for larger inputs as it requires more time to execute.
+    \end{itemize}
+
+    \section{Conclusion}
+    Algorithm 1 has greater space requirements than Algorithm 2 as all the functions will remain in the stack until the base case is reached. In addition to this, algorithm 1 (i.e. recursive approach) has greater time requirements because of function calls and returns overhead. Therefore, iterative algorithm is preferred over recursive approach.
+
+    \begin{thebibliography}{}
+    \bibitem{}
+    Medium: Recursion - Pros and Corns
+    \\\texttt{https://medium.com/@williambdale/recursion-the-pros-and-cons-76d32d75973a}
+    \bibitem{}
+    Geeksforgeeks: Recursive Function,
+    \\\texttt{https://www.geeksforgeeks.org/recursion/}
+    \end{thebibliography}
+
+\end{document}
