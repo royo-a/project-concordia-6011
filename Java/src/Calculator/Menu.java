@@ -35,11 +35,40 @@ public class Menu {
         System.out.println("Enter an angle in degrees(needs to be integer) or press Z to return to main menu:");
     }
 
-    public static void promptABXInput(){
+       public static void promptABXInput(){
         System.out.println(printUnderLine());
         System.out.println("You've chosen to calculate for ab^x.");
-        System.out.println("Please enter a value for a, b and x in order and each value in a new line. Or press Z " +
-                "to return to main menu: ");
+        
+        String a,b,x;
+        Scanner sc = new Scanner(System.in);
+		System.out.print("Enter value for a = ");
+		a = sc.next();
+		a = Calculator.checkValid(a);
+		while(a == null) {
+			System.out.print("Please enter value for a = ");
+			a = sc.next();
+			a = Calculator.checkValid(a);
+		}
+		System.out.print("Enter value for b = ");
+		b = sc.next();
+		b = Calculator.checkValid(b);
+		while(b == null) {
+			System.out.print("Please enter value for b = ");
+			b = sc.next();
+			b = Calculator.checkValid(b);
+		}
+		System.out.print("Enter value for x = ");
+		x = sc.next();
+		x = Calculator.checkValid(x);
+		while(x == null || x.equals("e")) {
+			System.out.print("Please reenter value for x = ");
+			x = sc.next();
+			x = Calculator.checkValid(x);
+		}
+		String result = Calculator.function5or6(a,b,x);
+        
+//        System.out.println("Please enter a value for a, b and x in order and each value in a new line. Or press Z " +
+//                "to return to main menu: ");
     }
 
     public static void promptXYInput(){
