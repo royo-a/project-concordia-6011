@@ -316,26 +316,29 @@ public class Calculator {
 	 * Returns a double value
 	 */
 	  
-	  public static double logN(double number) {
-	    if (number < 0)  {
-	      number = -number;
-	    }
-	    double modNum1 = number - 1;
-	    double modNum2 = number + 1;
-	    double mix = modNum1 / modNum2;
-	    double result = 0;
-	    int iteration = 100;
-	      if (iteration % 2 != 0) {
-	        result += basicPower(mix, iteration) / iteration;
-	      }
-	      iteration--;
-	    } 
-	    return result * 2;
-	  }
+public static double logN(double number)
+		{
+		    if(number<0) number=-number;
+			double modNum1= number -1;
+			double modNum2= number+1;
+			double mix=modNum1/modNum2;
+			double result=0;
+			int iteration=100;
+			while(iteration>0)
+			{
+				if(iteration%2!=0)  
+				  {
+				     result += basicPower(mix, iteration) / iteration;
+				  }
+			    iteration--;
+
+			}
+			//System.out.println(result*2);
+			return result*2;
+		}
     public static void function7or8() {
 		    double baseValue;
 		    double exponentValue;
-		    while(true) {
 		    Scanner sc = new Scanner(System.in);
 		    System.out.println("Enter the Base value:");
 		    String base = sc.nextLine();
@@ -361,5 +364,5 @@ public class Calculator {
 		    } catch (NumberFormatException e) {
 		      System.out.println("Exception : Entered input is not a double value ");
 		    }
-		    }
+    }
 }
