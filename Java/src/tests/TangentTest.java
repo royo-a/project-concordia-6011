@@ -7,6 +7,10 @@ import org.junit.jupiter.api.Test;
 
 class TangentTest {
 
+    // Test-ID: 01
+    /* Tests the method that generates factorials.
+       In this test, the returned array containing the factorials is checked.
+     */
     @Test
     void generateFactorials() {
         long[] factorials = Tangent.generateFactorials(5);
@@ -14,6 +18,10 @@ class TangentTest {
         Assertions.assertArrayEquals(expected, factorials);
     }
 
+    // Test-ID: 02
+    /* Tests the method that rounds the digits to 7 decimal places.
+       In this test, the returned rounded decimal is checked.
+     */
     @Test
     void roundTo7Digits() {
         double result = Tangent.roundTo7Digits(2.14167894567);
@@ -23,6 +31,10 @@ class TangentTest {
         Assertions.assertEquals(2.1416790, result);
     }
 
+    // Test-ID: 03
+    /* Tests the method that calculates the cosine.
+       In this test, the returned decimal is checked.
+     */
     @Test
     void calculateCos() {
         double result = Tangent.calculateCos(45);
@@ -36,6 +48,10 @@ class TangentTest {
 
     }
 
+    // Test-ID: 04
+    /* Tests the method that calculates the sine.
+       In this test, the returned decimal is checked.
+     */
     @Test
     void calculateSin() {
         double result = Tangent.calculateSin(45);
@@ -48,6 +64,10 @@ class TangentTest {
         Assertions.assertEquals(0.9998477, result);
     }
 
+    // Test-ID: 05
+    /* Tests the method that calculates the cosine.
+       In this test, the returned decimal is checked for all corner cases.
+     */
     @Test
     void calculateTan() {
         double result = Tangent.calculateTan(45);
