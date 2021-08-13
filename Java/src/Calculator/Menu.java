@@ -1,5 +1,7 @@
 package Calculator;
 
+import java.util.Scanner;
+
 public class Menu {
     private static String printUnderLine(){
         return "---------------------------------------------------------";
@@ -11,7 +13,7 @@ public class Menu {
         sb.append("Menu for supercalculator!\n");
         sb.append(printUnderLine()).append("\n");
         sb.append("1. tan(x)\n");
-        sb.append("2. sin(x)\n");
+        sb.append("2. Γ(x)\n");
         sb.append("3. ab^x\n");
         sb.append("4. x^y\n");
         sb.append("5. Quit\n");
@@ -31,8 +33,11 @@ public class Menu {
 
     public static void promptSineInput(){
         System.out.println(printUnderLine());
-        System.out.println("You've chosen to calculate for sin(x).");
-        System.out.println("Enter an angle in degrees(needs to be integer) or press Z to return to main menu:");
+        System.out.println("You've chosen to calculate for Γ(x).");
+        System.out.println("\nPlease enter the value of x: ");
+        Scanner scan = new Scanner(System.in);        
+        double input = scan.nextDouble();
+        System.out.println(FunctionF4.gamma(input));
     }
 
        public static void promptABXInput(){
