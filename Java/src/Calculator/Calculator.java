@@ -226,7 +226,7 @@ public class Calculator {
 		int tempx = 0;
 		
 		if(a.equals("e")) {
-			tempa = 1;
+			tempa = 2.71828182846;
 		}else {
 			tempa = Long.parseLong(a);
 		}
