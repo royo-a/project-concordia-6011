@@ -303,7 +303,6 @@ public class Calculator {
 	    double mix = modNum1 / modNum2;
 	    double result = 0;
 	    int iteration = 100;
-	    while (iteration > 0) {
 	      if (iteration % 2 != 0) {
 	        result += basicPower(mix, iteration) / iteration;
 	      }
@@ -318,9 +317,6 @@ public class Calculator {
 		    Scanner sc = new Scanner(System.in);
 		    System.out.println("Enter the Base value:");
 		    String base = sc.nextLine();
-            if(base.toLowerCase().equals("z")){
-                break;
-            }
 		    System.out.println("Enter the Exponent value:");
 		    String exponent = sc.nextLine();
 		    try {
@@ -344,5 +340,4 @@ public class Calculator {
 		      System.out.println("Exception : Entered input is not a double value ");
 		    }
 		    }
-    }
 }
